@@ -6,7 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int seba = 007;
+        String manaGay;
+        //// es cierto
+
+
+
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -22,3 +26,6 @@ public class Main {
         });
     }
 }
+
+////// facu gay
+///// 2 comentario
