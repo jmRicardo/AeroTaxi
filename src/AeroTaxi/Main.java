@@ -1,7 +1,6 @@
 package AeroTaxi;
 
 import javax.swing.*;
-//hola mundo
 
 public class Main {
 
@@ -13,7 +12,6 @@ public class Main {
             e1.printStackTrace();
         }
 
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -22,5 +20,3 @@ public class Main {
         });
     }
 }
-
-// seba trolo
