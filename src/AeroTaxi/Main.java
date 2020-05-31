@@ -13,6 +13,7 @@ public class Main {
 
 
         int seba = 007;
+        int trolo;
         float gato;
 
         try {
