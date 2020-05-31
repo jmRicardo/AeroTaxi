@@ -7,19 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String manaGay;
-        //// es cierto
-
-
-
-        int seba = 007;
-        float gato;
-
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e1) {
             e1.printStackTrace();
         }
+
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
