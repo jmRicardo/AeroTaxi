@@ -8,6 +8,4 @@ public class Airplane {
     private double maxSpeed;
     private String propulsion;
     private Propulsion engine;
-
-
 }
