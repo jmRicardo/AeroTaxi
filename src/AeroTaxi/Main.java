@@ -1,6 +1,7 @@
 package AeroTaxi;
 
 import javax.swing.*;
+//hola mundo
 
 public class Main {
 
@@ -11,6 +12,8 @@ public class Main {
 
 
 
+        int seba = 007;
+        float gato;
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -27,5 +30,4 @@ public class Main {
     }
 }
 
-////// facu gay
-///// 2 comentario
+// seba trolo
