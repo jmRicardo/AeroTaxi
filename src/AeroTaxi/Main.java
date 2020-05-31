@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         int seba = 007;
+        float gato;
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
