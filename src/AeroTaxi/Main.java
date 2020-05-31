@@ -12,6 +12,7 @@ public class Main {
 
 
 
+        double toga;
         int seba = 007;
         int trolo;
         float gato;
