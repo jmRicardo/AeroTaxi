@@ -16,7 +16,6 @@ public class MainWindow extends JFrame {
 
         image.setIcon(new ImageIcon("logo.png"));
 
-
          add(root);
          setResizable(false);
          setSize(300,500);

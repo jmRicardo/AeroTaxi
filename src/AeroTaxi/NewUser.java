@@ -12,10 +12,9 @@ public class NewUser extends JFrame{
     private JTextField ageField;
     private JButton okButton;
     private JPanel root;
+    private JButton backButton;
 
     public NewUser(){
-
-
 
         add(root);
         setResizable(false);
@@ -26,6 +25,15 @@ public class NewUser extends JFrame{
         okButton.addActionListener(actionEvent -> {
             dispose();
             NewFlight newflight = new NewFlight();
+        });
+
+        backButton.addActionListener(actionEvent -> {
+            dispose();
+            MainWindow mainwindow = new MainWindow();
+        });
+
+        okButton.addActionListener(e -> {
+
         });
     }
 }

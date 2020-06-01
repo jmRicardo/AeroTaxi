@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 public class ExistUser extends JFrame {
 
-    private static final String pattern = "\\d{1,2}\\.\\d{3}\\.\\d{3}";
-    private static final Pattern dniPattern = Pattern.compile(pattern);
 
     private JTextField dniText;
     private JPanel root;
@@ -16,6 +14,7 @@ public class ExistUser extends JFrame {
     private JButton searchButton;
     private JLabel isValidLabel;
     private JLabel exampleLabel;
+    private JButton backButton;
 
     public ExistUser(){
 
@@ -25,8 +24,6 @@ public class ExistUser extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
-
 
         searchButton.addActionListener(actionEvent -> {
             dispose();
@@ -48,11 +45,17 @@ public class ExistUser extends JFrame {
                 checkStatus();
             }
         });
+
+        backButton.addActionListener(actionEvent -> {
+            dispose();
+            MainWindow mainwindow = new MainWindow();
+        });
     }
+
 
     private void checkStatus(){
 
-         if (checkDni()){
+         if (AeroTaxi.checkDni(dniText.getText())){
              isValidLabel.setForeground(Color.green);
              isValidLabel.setText("formato valido!");
              searchButton.setEnabled(true);
@@ -61,11 +64,6 @@ public class ExistUser extends JFrame {
              isValidLabel.setText("formato invalido!");
              searchButton.setEnabled(false);
          }
-    }
-
-    private boolean checkDni()
-    {
-        return dniPattern.matcher(dniText.getText()).matches();
     }
 
 

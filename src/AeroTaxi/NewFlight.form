@@ -116,6 +116,14 @@
           <text value="Buscar Vuelos"/>
         </properties>
       </component>
+      <component id="ce2b5" class="javax.swing.JButton" binding="backButton">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Volver"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

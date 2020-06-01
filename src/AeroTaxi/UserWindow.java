@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 public class UserWindow extends JFrame {
     private JButton newUserButtton;
     private JButton existingUserButton;
-    private JButton Back;
     private JPanel root;
+    private JButton backButton;
 
     public UserWindow(){
 
@@ -18,7 +18,7 @@ public class UserWindow extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        Back.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 dispose();
