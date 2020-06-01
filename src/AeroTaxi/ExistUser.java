@@ -50,6 +50,13 @@ public class ExistUser extends JFrame {
             dispose();
             MainWindow mainwindow = new MainWindow();
         });
+        dniText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                checkStatus();
+            }
+        });
     }
 
 
