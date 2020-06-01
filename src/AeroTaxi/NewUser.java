@@ -22,10 +22,6 @@ public class NewUser extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        okButton.addActionListener(actionEvent -> {
-            dispose();
-            NewFlight newflight = new NewFlight();
-        });
 
         backButton.addActionListener(actionEvent -> {
             dispose();
