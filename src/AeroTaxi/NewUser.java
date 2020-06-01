@@ -15,8 +15,6 @@ public class NewUser extends JFrame{
 
     public NewUser(){
 
-
-
         add(root);
         setResizable(false);
         setSize(300,500);
