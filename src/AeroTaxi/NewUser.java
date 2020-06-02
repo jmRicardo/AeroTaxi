@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.LinkedList;
+import java.util.List;
 
 public class NewUser extends JFrame{
     private JTextField nameField;
@@ -35,8 +37,26 @@ public class NewUser extends JFrame{
             MainWindow mainwindow = new MainWindow();
         });
 
+
         okButton.addActionListener(e -> {
-            //AeroTaxi.
+//                se crea una list aux
+                  List<User> uList = new LinkedList<User>();
+
+                  String name,lastName,dni;
+                  int age;
+
+                  name = nameField.getText();
+                  lastName = lastField.getText();
+                  dni = dniField.getText();
+                  age = ageField.getX();
+
+                  User user = new User(name,lastName,dni,age);
+                  uList.add(user);
+
+//                se graba en el archivo
+                  AeroTaxi.save(AeroTaxi.usersPath, uList);
+
+
         });
 
         KeyAdapter checker = new KeyAdapter() {
@@ -52,6 +72,17 @@ public class NewUser extends JFrame{
         nameField.addKeyListener(checker);
         ageField.addKeyListener(checker);
         lastField.addKeyListener(checker);
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private void checkStatus(){
@@ -72,4 +103,10 @@ public class NewUser extends JFrame{
             okButton.setEnabled(false);
         }
     }
+
+
+
+
+
+
 }

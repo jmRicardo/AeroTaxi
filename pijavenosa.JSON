@@ -26,4 +26,32 @@
     "engine": "reaction",
     "rate": 6000.0
   }
+][
+  {
+    "fuel": 500.0,
+    "cost": 100.0,
+    "capacity": 100.0,
+    "maxSpeed": 450.0,
+    "engine": "propeller",
+    "rate": 3000.0
+  },
+  {
+    "catering": "CHORI CON MUCHO CHIMI!",
+    "fuel": 700.0,
+    "cost": 200.0,
+    "capacity": 350.0,
+    "maxSpeed": 700.0,
+    "engine": "piston",
+    "rate": 4000.0
+  },
+  {
+    "catering": "MILANGA CON PURE PAPURRI!",
+    "wifi": true,
+    "fuel": 900.0,
+    "cost": 350.0,
+    "capacity": 900.0,
+    "maxSpeed": 1000.0,
+    "engine": "reaction",
+    "rate": 6000.0
+  }
 ]
