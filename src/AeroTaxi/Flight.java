@@ -15,6 +15,8 @@ public class Flight {
 
     private boolean isDone;
 
+    public Flight(){}
+
     public Flight(List<User> users, Airplane plane, LocalDate date, int distance) {
         this.users = new ArrayList<User>();
         this.plane = plane;

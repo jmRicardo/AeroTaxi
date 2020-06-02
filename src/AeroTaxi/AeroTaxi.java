@@ -5,14 +5,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class AeroTaxi {
-
-
 
     /// Patrones
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
@@ -24,27 +23,33 @@ public class AeroTaxi {
     private static final String flightsPath = "flights.json";
 
     /// Arreglos estáticos
-    public static final List<Airplane> airplanes = load(airplanesPath);
-    public static final List<User> users = load(usersPath);
-    public static final List<Flight> flights = load(flightsPath);
+    public static final List<Airplane> airplanes = load(airplanesPath,new Airplane());
+   // public static final List<User> users = load(usersPath,new User());
+   // public static final List<Flight> flights = load(flightsPath,new Flight());
 
-    private static <T> List<T> load(String path)
+    private static <T> List<T> load(String path,T t)
     {
         List<T> list = new ArrayList<>();
         try {
             BufferedReader buffReader = new BufferedReader(new FileReader(new File(path)));
-            Gson gson = new Gson();
-            StringBuilder text = null;
-            while (buffReader!=null){
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            StringBuilder text = new StringBuilder();
+            while (buffReader.ready()){
                 text.append(buffReader.readLine());
             }
-            Object[] data = gson.fromJson(String.valueOf(text),Object[].class);
+            T[] data = gson.fromJson(text.toString(), (Type) Object[].class);
             Collections.addAll(list,data);
             buffReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(AeroTaxi.airplanes);
+
     }
 
 

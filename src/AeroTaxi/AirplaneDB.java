@@ -23,7 +23,7 @@ public class AirplaneDB {
         aList.add(airplane2);
         aList.add(airplane3);*/
 
-        System.out.println(AeroTaxi.airplanes);
+        //System.out.println(AeroTaxi.airplanes);
 
 
 
