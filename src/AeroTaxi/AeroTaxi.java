@@ -25,8 +25,8 @@ public class AeroTaxi {
 
     /// Arreglos estáticos
     public static final List<Airplane> airplanes = load(airplanesPath);
-    public static final List<User> users = load(usersPath);
-    public static final List<Flight> flights = load(flightsPath);
+    //public static final List<User> users = load(usersPath);
+    //public static final List<Flight> flights = load(flightsPath);
 
     private static <T> List<T> load(String path)
     {

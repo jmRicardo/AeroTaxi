@@ -17,4 +17,14 @@ public class User {
     public User() {
 
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DNI='" + DNI + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
