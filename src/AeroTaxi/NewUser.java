@@ -2,8 +2,11 @@ package AeroTaxi;
 
 import javax.swing.*;
 import javax.swing.plaf.metal.MetalLookAndFeel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class NewUser extends JFrame{
     private JTextField nameField;
@@ -12,10 +15,11 @@ public class NewUser extends JFrame{
     private JTextField ageField;
     private JButton okButton;
     private JPanel root;
+    private JButton backButton;
+    private JLabel isValidLabel;
+    private JLabel exampleLabel;
 
     public NewUser(){
-
-
 
         add(root);
         setResizable(false);
@@ -23,9 +27,47 @@ public class NewUser extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        okButton.addActionListener(actionEvent -> {
+
+        backButton.addActionListener(actionEvent -> {
             dispose();
-            NewFlight newflight = new NewFlight();
+            MainWindow mainwindow = new MainWindow();
         });
+
+        okButton.addActionListener(e -> {
+
+        });
+
+        KeyAdapter checker = new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                checkStatus();
+            }
+        };
+
+
+        dniField.addKeyListener(checker);
+        nameField.addKeyListener(checker);
+        ageField.addKeyListener(checker);
+        lastField.addKeyListener(checker);
+    }
+
+    private void checkStatus(){
+
+        boolean dniBool = AeroTaxi.checkDni(dniField.getText());
+        boolean ageBool = AeroTaxi.checkAge(ageField.getText());
+        boolean nameBool = !nameField.getText().isEmpty();
+        boolean lastBool = !lastField.getText().isEmpty();
+
+        if (dniBool && ageBool && nameBool && lastBool){
+            isValidLabel.setForeground(Color.green);
+            isValidLabel.setText("formato valido!");
+            isValidLabel.setVisible(false);
+            okButton.setEnabled(true);
+        }else{
+            isValidLabel.setForeground(Color.red);
+            isValidLabel.setText("formulario incompleto!");
+            okButton.setEnabled(false);
+        }
     }
 }

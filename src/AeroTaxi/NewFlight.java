@@ -2,6 +2,8 @@ package AeroTaxi;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class NewFlight extends JFrame{
     private JLabel dateLabel;
@@ -15,6 +17,7 @@ public class NewFlight extends JFrame{
     private JComboBox<String> airplanesCombo;
     private JButton buscarVuelosButton;
     private JPanel root;
+    private JButton backButton;
 
     public NewFlight() throws HeadlessException {
 
@@ -34,6 +37,14 @@ public class NewFlight extends JFrame{
         destinyCombo.addItem("Cordoba");
         destinyCombo.addItem("Santiago");
         destinyCombo.addItem("Montevideo");
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+                MainWindow mainwindow = new MainWindow();
+            }
+        });
 
 
 

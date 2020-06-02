@@ -14,7 +14,11 @@ public class MainWindow extends JFrame {
     public MainWindow(){
 
 
-        image.setIcon(new ImageIcon("logo.png"));
+        image.setIcon(new ImageIcon("logo2.png"));
+
+        ImageIcon img = new ImageIcon("aeroplano.png");
+
+        this.setIconImage(img.getImage());
 
 
          add(root);
