@@ -4,6 +4,7 @@ import AeroTaxi.airplanes.Airplane;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -24,8 +25,8 @@ public class AeroTaxi {
 
     /// Arreglos estáticos
     public static final List<Airplane> airplanes = load(airplanesPath);
-    public static final List<User> users = load(usersPath);
-    public static final List<Flight> flights = load(flightsPath);
+   // public static final List<User> users = load(usersPath);
+   // public static final List<Flight> flights = load(flightsPath);
 
     private static <T> List<T> load(String path)
     {
@@ -50,7 +51,18 @@ public class AeroTaxi {
 
     public static void main(String[] args) {
 
-        System.out.println(AeroTaxi.airplanes);
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                MainWindow mainwindows = new MainWindow();
+            }
+        });
 
     }
 
