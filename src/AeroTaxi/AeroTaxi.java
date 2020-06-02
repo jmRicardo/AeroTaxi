@@ -63,9 +63,7 @@ public class AeroTaxi {
     }
 
     public static void main(String[] args) {
-
-        save("pijavenosa.JSON",AeroTaxi.airplanes);
-
+        
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e1) {
