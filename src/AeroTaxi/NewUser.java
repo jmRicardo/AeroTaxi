@@ -39,24 +39,14 @@ public class NewUser extends JFrame{
 
 
         okButton.addActionListener(e -> {
-//                se crea una list aux
-                  List<User> uList = new LinkedList<User>();
-
-                  String name,lastName,dni;
-                  int age;
-
-                  name = nameField.getText();
-                  lastName = lastField.getText();
-                  dni = dniField.getText();
-                  age = ageField.getX();
-
-                  User user = new User(name,lastName,dni,age);
-                  uList.add(user);
-
-//                se graba en el archivo
-                  AeroTaxi.save(AeroTaxi.usersPath, uList);
-
-
+            String name = nameField.getText();
+            String lastName = lastField.getText();
+            String dni = dniField.getText();
+            int age = ageField.getX();
+            User user = new User(name,lastName,dni,age);
+            AeroTaxi.users.add(user);
+//          se graba en el archivo
+            AeroTaxi.save(AeroTaxi.usersPath, AeroTaxi.users);
         });
 
         KeyAdapter checker = new KeyAdapter() {

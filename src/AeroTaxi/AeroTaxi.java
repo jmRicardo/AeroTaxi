@@ -52,7 +52,7 @@ public class AeroTaxi {
     public static <T> void save(String path,List<T> l){
         BufferedWriter buffwriter = null;
         try {
-            buffwriter = new BufferedWriter(new FileWriter(new File(path),true));
+            buffwriter = new BufferedWriter(new FileWriter(new File(path)));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String serialized = gson.toJson(l);
             buffwriter.write(serialized);

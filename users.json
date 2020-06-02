@@ -1,29 +1,14 @@
 [
   {
-    "name": "bbbbbb",
-    "lastName": "bbbbb",
-    "DNI": "77.777.777",
-    "age": 92
-  }
-][
+    "name": "Juan",
+    "lastName": "Ricardo",
+    "DNI": "34.313.637",
+    "age": 95.0
+  },
   {
-    "name": "qqqqqq",
-    "lastName": "qqqqqq",
-    "DNI": "88.888.888",
-    "age": 92
-  }
-][
-  {
-    "name": "uuuuuu",
-    "lastName": "uuuuuu",
-    "DNI": "99.999.999",
-    "age": 92
-  }
-][
-  {
-    "name": "kkkkk",
-    "lastName": "kkkkkk",
-    "DNI": "11.111.111",
-    "age": 92
+    "name": "Pepe",
+    "lastName": "Mujica",
+    "DNI": "34.313.637",
+    "age": 95
   }
 ]
