@@ -18,7 +18,7 @@ public class NewFlight extends JFrame{
     private JButton buscarVuelosButton;
     private JPanel root;
     private JButton backButton;
-
+    //asd
     public NewFlight() throws HeadlessException {
 
         ImageIcon img = new ImageIcon("aeroplano.png");
@@ -35,10 +35,6 @@ public class NewFlight extends JFrame{
         origenCombo.addItem("Santiago");
         origenCombo.addItem("Montevideo");
 
-        destinyCombo.addItem("Buenos Aires");
-        destinyCombo.addItem("Cordoba");
-        destinyCombo.addItem("Santiago");
-        destinyCombo.addItem("Montevideo");
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -48,7 +44,38 @@ public class NewFlight extends JFrame{
             }
         });
 
+        //se espera que el combo box origen haga la accion, despues se remueve siempre los del combobox destino y seguido la series de if
+        //selecciona la opcion del origen y despues se asignan los destinos correspondientes
+        origenCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                destinyCombo.removeAllItems();
+                if (origenCombo.getSelectedItem().equals("Montevideo")) {
+                    destinyCombo.addItem("Cordoba");
+                    destinyCombo.addItem("Santiago");
+                    destinyCombo.addItem("Buenos Aires");
+                }
 
+                if (origenCombo.getSelectedItem().equals("Buenos Aires")) {
+                    destinyCombo.addItem("Cordoba");
+                    destinyCombo.addItem("Santiago");
+                    destinyCombo.addItem("Montevideo");
+                }
+
+                if (origenCombo.getSelectedItem().equals("Cordoba")) {
+                    destinyCombo.addItem("Buenos Aires");
+                    destinyCombo.addItem("Santiago");
+                    destinyCombo.addItem("Montevideo");
+                }
+
+                if (origenCombo.getSelectedItem().equals("Santiago")) {
+                    destinyCombo.addItem("Cordoba");
+                    destinyCombo.addItem("Buenos Aires");
+                    destinyCombo.addItem("Montevideo");
+                }
+            }
+
+        });
 
     }
 }
