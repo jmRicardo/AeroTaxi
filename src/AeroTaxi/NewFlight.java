@@ -21,6 +21,8 @@ public class NewFlight extends JFrame{
 
     public NewFlight() throws HeadlessException {
 
+        ImageIcon img = new ImageIcon("aeroplano.png");
+        this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
         setSize(300,500);

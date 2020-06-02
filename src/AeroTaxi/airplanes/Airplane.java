@@ -18,11 +18,51 @@ public class Airplane {
         this.rate = rate;
     }
 
+    public int getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
     public double getCost() {
         return cost;
     }
 
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public Propulsion getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Propulsion engine) {
+        this.engine = engine;
+    }
+
     public int getRate() {
         return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 }

@@ -21,6 +21,8 @@ public class NewUser extends JFrame{
 
     public NewUser(){
 
+        ImageIcon img = new ImageIcon("aeroplano.png");
+        this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
         setSize(300,500);

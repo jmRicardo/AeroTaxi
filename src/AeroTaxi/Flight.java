@@ -2,18 +2,18 @@ package AeroTaxi;
 
 import AeroTaxi.airplanes.Airplane;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Flight {
 
     private List<User> users;
     private Airplane plane;
-    private Date date;
+    private LocalDate date;
     private int distance;
 
-    public Flight(List<User> users, Airplane plane, Date date, int distance) {
+    public Flight(List<User> users, Airplane plane, LocalDate date, int distance) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;

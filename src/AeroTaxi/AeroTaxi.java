@@ -17,6 +17,12 @@ public class AeroTaxi {
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
 
+    /// Rutas de aceeso a archivos
+    public static final String airplanesPath = "airplanes.json";
+    public static final String usersPath = "users.json";
+    public static final String flightsPath = "flights.json";
+
+
     /// Métodos estáticos utiles
     public static boolean checkDni(String DNI)
     {

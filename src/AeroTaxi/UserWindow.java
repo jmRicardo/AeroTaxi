@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserWindow extends JFrame {
+
     private JButton newUserButtton;
     private JButton existingUserButton;
     private JPanel root;
@@ -12,6 +13,8 @@ public class UserWindow extends JFrame {
 
     public UserWindow(){
 
+        ImageIcon img = new ImageIcon("aeroplano.png");
+        this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
         setSize(300,500);
