@@ -19,14 +19,14 @@ public class AeroTaxi {
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
 
     /// Rutas de aceeso a archivos
-    private static final String airplanesPath = "airplanes.json";
-    private static final String usersPath = "users.json";
-    private static final String flightsPath = "flights.json";
+    public static final String airplanesPath = "airplanes.json";
+    public static final String usersPath = "users.json";
+    public static final String flightsPath = "flights.json";
 
     /// Arreglos estáticos
     public static final List<Airplane> airplanes = load(airplanesPath);
-   // public static final List<User> users = load(usersPath);
-   // public static final List<Flight> flights = load(flightsPath);
+    public static final List<User> users = load(usersPath);
+    public static final List<Flight> flights = load(flightsPath);
 
     private static <T> List<T> load(String path)
     {
@@ -49,7 +49,22 @@ public class AeroTaxi {
         return list;
     }
 
+    public static <T> void save(String path,List<T> l){
+        BufferedWriter buffwriter = null;
+        try {
+            buffwriter = new BufferedWriter(new FileWriter(new File(path)));
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String serialized = gson.toJson(l);
+            buffwriter.write(serialized);
+            buffwriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
+
+        save("pijavenosa.JSON",AeroTaxi.airplanes);
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
