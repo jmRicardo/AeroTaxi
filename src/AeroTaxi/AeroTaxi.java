@@ -25,10 +25,10 @@ public class AeroTaxi {
 
     /// Arreglos estáticos
     public static final List<Airplane> airplanes = load(airplanesPath);
-    //public static final List<User> users = load(usersPath);
+    public static final List<User> users = load(usersPath);
     //public static final List<Flight> flights = load(flightsPath);
 
-    private static <T> List<T> load(String path)
+    public static <T> List<T> load(String path)
     {
         List<T> list = new ArrayList<>();
         try {
@@ -52,7 +52,7 @@ public class AeroTaxi {
     public static <T> void save(String path,List<T> l){
         BufferedWriter buffwriter = null;
         try {
-            buffwriter = new BufferedWriter(new FileWriter(new File(path)));
+            buffwriter = new BufferedWriter(new FileWriter(new File(path),true));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String serialized = gson.toJson(l);
             buffwriter.write(serialized);
@@ -91,4 +91,5 @@ public class AeroTaxi {
     {
         return agePattern.matcher(age).matches();
     }
+
 }
