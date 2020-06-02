@@ -1,0 +1,20 @@
+Index: src/AeroTaxi/AeroTaxi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package AeroTaxi;\r\n\r\nimport AeroTaxi.airplanes.Airplane;\r\nimport com.google.gson.Gson;\r\nimport com.google.gson.GsonBuilder;\r\n\r\nimport javax.swing.*;\r\nimport java.io.*;\r\nimport java.lang.reflect.Type;\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.List;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class AeroTaxi {\r\n\r\n    /// Patrones\r\n    private static final Pattern dniPattern = Pattern.compile(\"\\\\d{1,2}\\\\.\\\\d{3}\\\\.\\\\d{3}\");\r\n    private static final Pattern agePattern = Pattern.compile(\"\\\\d{2}\");\r\n\r\n    /// Rutas de aceeso a archivos\r\n    private static final String airplanesPath = \"airplanes.json\";\r\n    private static final String usersPath = \"users.json\";\r\n    private static final String flightsPath = \"flights.json\";\r\n\r\n    /// Arreglos estáticos\r\n    public static final List<Airplane> airplanes = load(airplanesPath);\r\n   // public static final List<User> users = load(usersPath);\r\n   // public static final List<Flight> flights = load(flightsPath);\r\n\r\n    private static <T> List<T> load(String path)\r\n    {\r\n        List<T> list = new ArrayList<>();\r\n        try {\r\n            BufferedReader buffReader = new BufferedReader(new FileReader(new File(path)));\r\n            Gson gson = new GsonBuilder().setPrettyPrinting().create();\r\n            StringBuilder text = new StringBuilder();\r\n            while (buffReader.ready()){\r\n                text.append(buffReader.readLine());\r\n            }\r\n            T[] data = gson.fromJson(text.toString(), (Type) Object[].class);\r\n            Collections.addAll(list,data);\r\n            buffReader.close();\r\n        }catch (FileNotFoundException e){\r\n            System.out.println(\"Archivo no existe!\");\r\n        }catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n        return list;\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n\r\n        try {\r\n            UIManager.setLookAndFeel(\"javax.swing.plaf.nimbus.NimbusLookAndFeel\");\r\n        } catch (Exception e1) {\r\n            e1.printStackTrace();\r\n        }\r\n\r\n        SwingUtilities.invokeLater(new Runnable() {\r\n            @Override\r\n            public void run() {\r\n                MainWindow mainwindows = new MainWindow();\r\n            }\r\n        });\r\n\r\n    }\r\n\r\n\r\n    /// Métodos estáticos utiles\r\n    public static boolean checkDni(String DNI)\r\n    {\r\n        return dniPattern.matcher(DNI).matches();\r\n    }\r\n    public static boolean checkAge(String age)\r\n    {\r\n        return agePattern.matcher(age).matches();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/AeroTaxi/AeroTaxi.java	(revision c395e505fe52ff0aff942170d4bdb9a35c7d872f)
++++ src/AeroTaxi/AeroTaxi.java	(date 1591124835995)
+@@ -25,8 +25,8 @@
+ 
+     /// Arreglos estáticos
+     public static final List<Airplane> airplanes = load(airplanesPath);
+-   // public static final List<User> users = load(usersPath);
+-   // public static final List<Flight> flights = load(flightsPath);
++    public static final List<User> users = load(usersPath);
++    public static final List<Flight> flights = load(flightsPath);
+ 
+     private static <T> List<T> load(String path)
+     {
