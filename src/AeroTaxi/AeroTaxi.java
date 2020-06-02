@@ -23,11 +23,11 @@ public class AeroTaxi {
     private static final String flightsPath = "flights.json";
 
     /// Arreglos estáticos
-    public static final List<Airplane> airplanes = load(airplanesPath,new Airplane());
-   // public static final List<User> users = load(usersPath,new User());
-   // public static final List<Flight> flights = load(flightsPath,new Flight());
+    public static final List<Airplane> airplanes = load(airplanesPath);
+    public static final List<User> users = load(usersPath);
+    public static final List<Flight> flights = load(flightsPath);
 
-    private static <T> List<T> load(String path,T t)
+    private static <T> List<T> load(String path)
     {
         List<T> list = new ArrayList<>();
         try {
@@ -40,7 +40,9 @@ public class AeroTaxi {
             T[] data = gson.fromJson(text.toString(), (Type) Object[].class);
             Collections.addAll(list,data);
             buffReader.close();
-        } catch (IOException e) {
+        }catch (FileNotFoundException e){
+            System.out.println("Archivo no existe!");
+        }catch (IOException e) {
             e.printStackTrace();
         }
         return list;
