@@ -65,7 +65,7 @@ public class Flight {
         isDone = done;
     }
 
-    public double costOfFlight (){  //costo total de un vuelo
+    /*public double costOfFlight (){  //costo total de un vuelo
         return distance * plane.getCost() + (users.size() * 3500) + plane.getRate();
-    }
+    }*/
 }

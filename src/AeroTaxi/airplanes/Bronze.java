@@ -7,8 +7,7 @@ public class Bronze extends Airplane{
         super(fuel, cost, capacity, maxSpeed, engine, 3000);
     }
 
-
-
+    public Bronze(){super();}
     @Override
     public String toString() {
         return super.toString();

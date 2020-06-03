@@ -1,6 +1,18 @@
 package AeroTaxi.airplanes;
 
-public class Airplane {
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Bronze.class, name = "Bronze"),
+        @JsonSubTypes.Type(value = Silver.class, name = "Silver"),
+        @JsonSubTypes.Type(value = Gold.class, name = "Gold")
+})
+public abstract class Airplane {
 
     private int fuel;
     private double cost;
@@ -9,10 +21,9 @@ public class Airplane {
     private Propulsion engine;
     private int rate;
 
-    public Airplane() {
-    }
+    public Airplane(){}
 
-    public Airplane(int fuel, double cost, int capacity, double maxSpeed, Propulsion engine, int rate) {
+    protected Airplane(int fuel, double cost, int capacity, double maxSpeed, Propulsion engine, int rate) {
         this.fuel = fuel;
         this.cost = cost;
         this.capacity = capacity;

@@ -6,6 +6,8 @@ public class Gold extends Airplane implements Catering{
     private String catering;
     private boolean wifi;
 
+    public Gold(){super();}
+
     public Gold(int fuel, double cost, int capacity, double maxSpeed, Propulsion engine,boolean wifi) {
         super(fuel, cost, capacity, maxSpeed, engine, 6000);
         this.catering = catering();

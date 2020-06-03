@@ -14,19 +14,23 @@ public class AirplaneDB {
 
     public static void main(String[] args) {
 
-        /*Bronze airplane1 = new Bronze(500,100,100,450, Propulsion.propeller);
+        Bronze airplane1 = new Bronze(500,100,100,450, Propulsion.propeller);
         Silver airplane2 = new Silver(700,200,350,700,Propulsion.piston);
         Gold   airplane3 =   new Gold(900,350,900,1000,Propulsion.reaction,true);
 
-        List<Airplane> aList = new ArrayList<>();
+        List<Airplane> a = new ArrayList<>();
 
-        aList.add(airplane1);
-        aList.add(airplane2);
-        aList.add(airplane3);*/
+        a.add(airplane1);
+        a.add(airplane2);
+        a.add(airplane3);
+
+        AeroTaxi.toJson(AeroTaxi.airplanesPath,a);
+
+
 
         //System.out.println(AeroTaxi.airplanes);
 
-        User user1 = new User("Padra", "Paraz", "11.111.111", 11);
+        /*User user1 = new User("Padra", "Paraz", "11.111.111", 11);
         User user2 = new User("Pedre", "Perez", "22.222.222", 22);
         User user3 = new User("Pidri", "Piriz", "33.333.333", 33);
         User user4 = new User("Podro", "Poroz", "44.444.444", 44);
@@ -42,7 +46,7 @@ public class AirplaneDB {
 
         System.out.println(uList);
 
-        AeroTaxi.save(AeroTaxi.usersPath, uList);
+        AeroTaxi.save(AeroTaxi.usersPath, uList);*/
 
 
     }
