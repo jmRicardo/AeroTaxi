@@ -22,6 +22,7 @@ public class Flight {
         this.plane = plane;
         this.date = date;
         this.distance = distance;
+        this.isDone = false;
     }
 
     public List<User> getUsers() {

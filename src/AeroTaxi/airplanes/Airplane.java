@@ -68,4 +68,16 @@ public class Airplane {
     public void setRate(int rate) {
         this.rate = rate;
     }
+
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "fuel=" + fuel +
+                ", cost=" + cost +
+                ", capacity=" + capacity +
+                ", maxSpeed=" + maxSpeed +
+                ", engine=" + engine +
+                ", rate=" + rate +
+                '}';
+    }
 }

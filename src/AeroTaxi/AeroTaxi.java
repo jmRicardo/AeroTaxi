@@ -1,14 +1,13 @@
 package AeroTaxi;
 
-import AeroTaxi.airplanes.Airplane;
+import AeroTaxi.airplanes.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -24,13 +23,12 @@ public class AeroTaxi {
     public static final String flightsPath = "flights.json";
 
     /// Arreglos estáticos
-    public static final List<Airplane> airplanes = load(airplanesPath);
-    public static final List<User> users = load(usersPath);
-    //public static final List<Flight> flights = load(flightsPath);
+    public static final List<Airplane> airplanes = load(airplanesPath,Airplane.class);
+    public static final List<User> users = load(usersPath,User.class);
+    public static final List<Flight> flights = load(flightsPath,Flight.class);
 
-    public static <T> List<T> load(String path)
+    public static <T> List<T> load(String path,Class<T> t)
     {
-        List<T> list = new ArrayList<>();
         try {
             BufferedReader buffReader = new BufferedReader(new FileReader(new File(path)));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -38,23 +36,23 @@ public class AeroTaxi {
             while (buffReader.ready()){
                 text.append(buffReader.readLine());
             }
-            T[] data = gson.fromJson(text.toString(), (Type) Object[].class);
-            Collections.addAll(list,data);
+            List<T> data = gson.fromJson(text.toString(), TypeToken.getParameterized(List.class, t).getType());
             buffReader.close();
+            return data;
         }catch (FileNotFoundException e){
             System.out.println("Archivo no existe!");
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+        return new ArrayList<>();
     }
 
-    public static <T> void save(String path,List<T> l){
+    public static <T> void save(String path,List<T> lista){
         BufferedWriter buffwriter = null;
         try {
             buffwriter = new BufferedWriter(new FileWriter(new File(path)));
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String serialized = gson.toJson(l);
+            String serialized = gson.toJson(lista);
             buffwriter.write(serialized);
             buffwriter.close();
         } catch (IOException e) {
@@ -62,8 +60,22 @@ public class AeroTaxi {
         }
     }
 
+    /// Métodos estáticos utiles
+    public static boolean checkDni(String DNI)
+    {
+        return dniPattern.matcher(DNI).matches();
+    }
+    public static boolean checkAge(String age)
+    {
+        return agePattern.matcher(age).matches();
+    }
+    public static User searchUser(String DNI){
+      return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
+    }
+
+
     public static void main(String[] args) {
-        
+
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e1) {
@@ -80,14 +92,5 @@ public class AeroTaxi {
     }
 
 
-    /// Métodos estáticos utiles
-    public static boolean checkDni(String DNI)
-    {
-        return dniPattern.matcher(DNI).matches();
-    }
-    public static boolean checkAge(String age)
-    {
-        return agePattern.matcher(age).matches();
-    }
 
 }

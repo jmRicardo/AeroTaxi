@@ -9,6 +9,12 @@
     "name": "Pepe",
     "lastName": "Mujica",
     "DNI": "34.313.637",
-    "age": 95
+    "age": 95.0
+  },
+  {
+    "name": "Alfredo",
+    "lastName": "Caseros",
+    "DNI": "15.156.712",
+    "age": 60
   }
 ]

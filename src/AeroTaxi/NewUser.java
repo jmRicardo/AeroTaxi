@@ -42,7 +42,7 @@ public class NewUser extends JFrame{
             String name = nameField.getText();
             String lastName = lastField.getText();
             String dni = dniField.getText();
-            int age = ageField.getX();
+            int age = Integer.parseInt(ageField.getText());
             User user = new User(name,lastName,dni,age);
             AeroTaxi.users.add(user);
 //          se graba en el archivo

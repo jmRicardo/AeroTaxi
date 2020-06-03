@@ -31,5 +31,9 @@ public class MainWindow extends JFrame {
             dispose();
             UserWindow userwindow = new UserWindow();
         });
+        cancelButton.addActionListener(e -> {
+            dispose();
+            new CancelFlight();
+        });
     }
 }

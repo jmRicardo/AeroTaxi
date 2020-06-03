@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.regex.Pattern;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class ExistUser extends JFrame {
 
 
@@ -26,11 +28,6 @@ public class ExistUser extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
-        searchButton.addActionListener(actionEvent -> {
-            dispose();
-            NewFlight newflight = new NewFlight();
-        });
 
         dniText.addFocusListener(new FocusAdapter() {
             @Override
@@ -59,6 +56,24 @@ public class ExistUser extends JFrame {
                 checkStatus();
             }
         });
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                check();
+            }
+        });
+    }
+
+    private void check(){
+        User find = AeroTaxi.searchUser(dniText.getText());
+        if (find == null){
+            showMessageDialog(null, "El usuario no existe!");
+        }
+        else{
+            dispose();
+            NewFlight newflight = new NewFlight();
+        }
+
     }
 
 

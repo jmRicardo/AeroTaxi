@@ -10,8 +10,23 @@ public class Silver extends Airplane implements Catering{
         this.catering = catering();
     }
 
+    public String getCatering() {
+        return catering;
+    }
+
+    public void setCatering(String catering) {
+        this.catering = catering;
+    }
+
     @Override
     public String catering() {
         return "CHORI CON MUCHO CHIMI!";
+    }
+
+    @Override
+    public String toString() {
+        return "Silver{" +
+                "catering='" + catering + '\'' +
+                "} " + super.toString();
     }
 }

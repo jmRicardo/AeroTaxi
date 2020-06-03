@@ -17,7 +17,7 @@
           <text value="Fecha"/>
         </properties>
       </component>
-      <component id="ad7d7" class="javax.swing.JTextField" binding="fechaTextField" default-binding="true">
+      <component id="ad7d7" class="javax.swing.JTextField" binding="dateField">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -27,7 +27,7 @@
       </component>
       <component id="5a56d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Origen"/>
@@ -35,7 +35,7 @@
       </component>
       <component id="5bf96" class="javax.swing.JLabel" binding="destinyLabel">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Destino"/>
@@ -43,13 +43,13 @@
       </component>
       <component id="f323b" class="javax.swing.JComboBox" binding="origenCombo">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
       <component id="b696f" class="javax.swing.JComboBox" binding="destinyCombo">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
@@ -62,7 +62,7 @@
           <text value="Acompañantes"/>
         </properties>
       </component>
-      <component id="fc23d" class="javax.swing.JTextField" binding="acompañantesTextField" default-binding="true">
+      <component id="fc23d" class="javax.swing.JTextField" binding="companionField">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -108,20 +108,20 @@
         </constraints>
         <properties/>
       </component>
-      <component id="d6df4" class="javax.swing.JButton" binding="buscarVuelosButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Buscar Vuelos"/>
-        </properties>
-      </component>
       <component id="ce2b5" class="javax.swing.JButton" binding="backButton">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Volver"/>
+        </properties>
+      </component>
+      <component id="d6df4" class="javax.swing.JButton" binding="buscarVuelosButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Buscar Vuelos"/>
         </properties>
       </component>
     </children>
