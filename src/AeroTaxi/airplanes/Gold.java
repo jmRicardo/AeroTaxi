@@ -37,9 +37,6 @@ public class Gold extends Airplane implements Catering{
 
     @Override
     public String toString() {
-        return "Gold{" +
-                "catering='" + catering + '\'' +
-                ", wifi=" + wifi +
-                "} " + super.toString();
+        return "Gold";
     }
 }

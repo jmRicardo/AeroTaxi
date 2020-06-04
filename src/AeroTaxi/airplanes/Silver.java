@@ -28,8 +28,6 @@ public class Silver extends Airplane implements Catering{
 
     @Override
     public String toString() {
-        return "Silver{" +
-                "catering='" + catering + '\'' +
-                "} " + super.toString();
+        return "Silver";
     }
 }

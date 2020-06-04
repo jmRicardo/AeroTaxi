@@ -24,6 +24,9 @@ public class NewFlight extends JFrame{
     private JButton searchButton;
     private JPanel root;
     private JButton backButton;
+    private JTextField capa;
+    private JTextField totalCost;
+
     //asd
     public NewFlight() throws HeadlessException {
 
@@ -102,6 +105,42 @@ public class NewFlight extends JFrame{
             LocalDate localDate = LocalDate.parse(dateField.getText());
 
         });
+
+        for (Airplane a : AeroTaxi.airplanes){  //recorre la lista de aviones para mostrar en el Box
+            airplanesCombo.addItem(a.toString());
+        }
+
+        companionField.setText("0"); //necesario para que funcione el calculo del costo del vuelo
+
+        airplanesCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int i = airplanesCombo.getSelectedIndex();
+                //capa.setText(""+i);
+                Airplane aux = AeroTaxi.airplanes.get(i);
+
+                //capa.setText("Hay");
+
+                String origen = origenCombo.getSelectedItem().toString();
+                String destino = destinyCombo.getSelectedItem().toString();
+
+                //capa.setText(origen);
+
+                LocalDate date = LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+                Flight auxi = new Flight(aux, date, origen, destino);
+                int compa = Integer.parseInt(companionField.getText());  //problema si es cero
+
+                double cost = auxi.getDistance() * 150 + ((compa + 1) * 3500) + auxi.getPlane().getRate();  //el costo lo invente (el 150)
+
+                totalCost.setText(String.valueOf(cost));
+
+
+
+
+            }
+        });
+
         dateField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
