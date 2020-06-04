@@ -47,7 +47,9 @@ public class NewUser extends JFrame{
             AeroTaxi.users.add(user);
 //          se graba en el archivo
             AeroTaxi.save(AeroTaxi.usersPath, AeroTaxi.users);
+
         });
+
 
         KeyAdapter checker = new KeyAdapter() {
             @Override

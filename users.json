@@ -3,18 +3,24 @@
     "name": "Juan",
     "lastName": "Ricardo",
     "DNI": "34.313.637",
-    "age": 95.0
+    "age": 95
   },
   {
     "name": "Pepe",
     "lastName": "Mujica",
     "DNI": "34.313.637",
-    "age": 95.0
+    "age": 95
   },
   {
     "name": "Alfredo",
     "lastName": "Caseros",
     "DNI": "15.156.712",
     "age": 60
+  },
+  {
+    "name": "Guillermo",
+    "lastName": "Mainini",
+    "DNI": "11.111.111",
+    "age": 39
   }
 ]

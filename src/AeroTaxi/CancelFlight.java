@@ -2,6 +2,8 @@ package AeroTaxi;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -13,8 +15,8 @@ public class CancelFlight extends JFrame {
     private JLabel dniLabel;
     private JLabel exampleLabel;
     private JButton searchButton;
-    private JList list1;
     private JLabel isValidLabel;
+    private JTable table1;
 
     public CancelFlight() {
 
@@ -38,6 +40,7 @@ public class CancelFlight extends JFrame {
                 checkStatus();
             }
         });
+        
     }
 
     private void checkStatus(){
@@ -52,4 +55,6 @@ public class CancelFlight extends JFrame {
             searchButton.setEnabled(false);
         }
     }
+
+
 }

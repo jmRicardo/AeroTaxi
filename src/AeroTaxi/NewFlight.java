@@ -41,6 +41,11 @@ public class NewFlight extends JFrame{
         origenCombo.addItem("Santiago");
         origenCombo.addItem("Montevideo");
 
+        destinyCombo.addItem("Montevideo");
+        destinyCombo.addItem("Cordoba");
+        destinyCombo.addItem("Santiago");
+        destinyCombo.addItem("Buenos Aires");
+
 
         backButton.addActionListener(new ActionListener() {
             @Override
