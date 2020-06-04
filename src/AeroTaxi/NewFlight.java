@@ -38,6 +38,9 @@ public class NewFlight extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        airplanesCombo.setEnabled(false);
+
+        destinyCombo.setEnabled(false);
 
         origenCombo.addItem(City.Buenos_Aires);
         origenCombo.addItem(City.Cordoba);
@@ -63,6 +66,7 @@ public class NewFlight extends JFrame{
         origenCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                destinyCombo.setEnabled(true);
                 destinyCombo.removeAllItems();
                 if (origenCombo.getSelectedItem().equals(City.Montevideo)) {
                     destinyCombo.addItem(City.Cordoba);
