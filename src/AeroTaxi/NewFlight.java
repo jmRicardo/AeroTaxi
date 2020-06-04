@@ -1,12 +1,15 @@
 package AeroTaxi;
 
 import AeroTaxi.airplanes.Airplane;
-import AeroTaxi.airplanes.Gold;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class NewFlight extends JFrame{
     private JLabel dateLabel;
@@ -18,7 +21,7 @@ public class NewFlight extends JFrame{
     private JButton okButton;
     private JLabel planeLabel;
     private JComboBox airplanesCombo;
-    private JButton buscarVuelosButton;
+    private JButton searchButton;
     private JPanel root;
     private JButton backButton;
     //asd
@@ -38,9 +41,6 @@ public class NewFlight extends JFrame{
         origenCombo.addItem("Santiago");
         origenCombo.addItem("Montevideo");
 
-        for (Airplane a : AeroTaxi.airplanes) {
-            airplanesCombo.addItem(a);
-        }
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -88,6 +88,21 @@ public class NewFlight extends JFrame{
                 Flight flight = new Flight();
                 AeroTaxi.flights.add(flight);
                 AeroTaxi.save(AeroTaxi.flightsPath,AeroTaxi.flights);
+        });
+        searchButton.addActionListener(e -> {
+
+            String origin = origenCombo.getSelectedItem().toString();
+            String arrival = destinyCombo.getSelectedItem().toString();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate localDate = LocalDate.parse(dateField.getText());
+
+        });
+        dateField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                 searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
+            }
         });
     }
 }

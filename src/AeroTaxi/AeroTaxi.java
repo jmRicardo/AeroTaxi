@@ -9,6 +9,8 @@ import com.google.gson.reflect.TypeToken;
 
 import javax.swing.*;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -18,6 +20,7 @@ public class AeroTaxi {
     /// Patrones
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
+    private static final Pattern datePattern = Pattern.compile("\\d{1,2}\\/\\d{1,2}\\/202\\d");
 
     /// Rutas de aceeso a archivos
     public static final String airplanesPath = "airplanes.json";
@@ -95,6 +98,10 @@ public class AeroTaxi {
     public static boolean checkAge(String age)
     {
         return agePattern.matcher(age).matches();
+    }
+    public static boolean checkDate(String date)
+    {
+        return datePattern.matcher(date).matches();
     }
     public static User searchUser(String DNI){
       return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
