@@ -12,18 +12,18 @@ public class Flight {
     private Airplane plane;
     private LocalDate date;
     private int distance;
-    private String departure;
-    private String destiny;
+    private City departure;
+    private City destiny;
 
     private boolean isDone;
 
     public Flight(){}
 
-    public Flight(Airplane plane, LocalDate date, String departure, String destiny) {
+    public Flight(Airplane plane, LocalDate date, City departure, City destiny) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;
-        this.distance = 100;  //ver q error hay
+        this.distance = calculateDistance();
         this.departure = departure;
         this.destiny = destiny;
         this.isDone = false;
@@ -61,19 +61,19 @@ public class Flight {
         this.distance = distance;
     }
 
-    public String getOrigin() {
+    public City getOrigin() {
         return departure;
     }
 
-    public void setOrigin(String origin) {
+    public void setOrigin(City origin) {
         this.departure = origin;
     }
 
-    public String getDestiny() {
+    public City getDestiny() {
         return destiny;
     }
 
-    public void setDestiny(String destiny) {
+    public void setDestiny(City destiny) {
         this.destiny = destiny;
     }
 
@@ -87,28 +87,25 @@ public class Flight {
 
     public int calculateDistance (){
         int aux = 0;
-        if ((departure.equals("Buenos Aires") && destiny.equals("Cordoba")) || (departure.equals("Cordoba") && destiny.equals("Buenos Aires"))){
+        if ((departure == City.Buenos_Aires) && (destiny == City.Cordoba) || (departure == City.Cordoba) && (destiny == City.Buenos_Aires)){
             aux = 695;
         }
-        if ((departure.equals("Buenos Aires") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Buenos Aires"))){
+        if ((departure == City.Buenos_Aires) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Buenos_Aires)){
             aux = 1400;
         }
-        if ((departure.equals("Buenos Aires") && destiny.equals("Montevideo")) || (departure.equals("Montevideo") && destiny.equals("Buenos Aires"))){
+        if ((departure == City.Buenos_Aires) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Buenos_Aires)){
             aux = 950;
         }
-        if ((departure.equals("Cordoba") && destiny.equals("Montevideo")) || (departure.equals("Montevideo") && destiny.equals("Cordoba"))){
+        if ((departure == City.Cordoba) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Cordoba)){
             aux = 1190;
         }
-        if ((departure.equals("Cordoba") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Cordoba"))){
+        if ((departure == City.Cordoba) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Cordoba)){
             aux = 1050;
         }
-        if ((departure.equals("Montevideo") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Montevideo"))){
+        if ((departure == City.Montevideo) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Montevideo)){
             aux = 2100;
         }
         return aux;
     }
 
-    public double costOfFlight (){  //costo total de un vuelo
-        return distance * plane.getCost() + (users.size() * 3500) + plane.getRate();
-    }
 }

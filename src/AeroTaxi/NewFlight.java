@@ -39,10 +39,10 @@ public class NewFlight extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
 
-        origenCombo.addItem("Buenos Aires");
-        origenCombo.addItem("Cordoba");
-        origenCombo.addItem("Santiago");
-        origenCombo.addItem("Montevideo");
+        origenCombo.addItem(City.Buenos_Aires);
+        origenCombo.addItem(City.Cordoba);
+        origenCombo.addItem(City.Santiago);
+        origenCombo.addItem(City.Montevideo);
 
 
         backButton.addActionListener(new ActionListener() {
@@ -59,28 +59,28 @@ public class NewFlight extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 destinyCombo.removeAllItems();
-                if (origenCombo.getSelectedItem().equals("Montevideo")) {
-                    destinyCombo.addItem("Cordoba");
-                    destinyCombo.addItem("Santiago");
-                    destinyCombo.addItem("Buenos Aires");
+                if (origenCombo.getSelectedItem().equals(City.Montevideo)) {
+                    destinyCombo.addItem(City.Cordoba);
+                    destinyCombo.addItem(City.Santiago);
+                    destinyCombo.addItem(City.Buenos_Aires);
                 }
 
-                if (origenCombo.getSelectedItem().equals("Buenos Aires")) {
-                    destinyCombo.addItem("Cordoba");
-                    destinyCombo.addItem("Santiago");
-                    destinyCombo.addItem("Montevideo");
+                if (origenCombo.getSelectedItem().equals(City.Buenos_Aires)) {
+                    destinyCombo.addItem(City.Cordoba);
+                    destinyCombo.addItem(City.Santiago);
+                    destinyCombo.addItem(City.Montevideo);
                 }
 
-                if (origenCombo.getSelectedItem().equals("Cordoba")) {
-                    destinyCombo.addItem("Buenos Aires");
-                    destinyCombo.addItem("Santiago");
-                    destinyCombo.addItem("Montevideo");
+                if (origenCombo.getSelectedItem().equals(City.Cordoba)) {
+                    destinyCombo.addItem(City.Buenos_Aires);
+                    destinyCombo.addItem(City.Santiago);
+                    destinyCombo.addItem(City.Montevideo);
                 }
 
-                if (origenCombo.getSelectedItem().equals("Santiago")) {
-                    destinyCombo.addItem("Cordoba");
-                    destinyCombo.addItem("Buenos Aires");
-                    destinyCombo.addItem("Montevideo");
+                if (origenCombo.getSelectedItem().equals(City.Santiago)) {
+                    destinyCombo.addItem(City.Cordoba);
+                    destinyCombo.addItem(City.Buenos_Aires);
+                    destinyCombo.addItem(City.Montevideo);
                 }
             }
 
@@ -116,15 +116,15 @@ public class NewFlight extends JFrame{
 
                 //capa.setText("Hay");
 
-                String origen = origenCombo.getSelectedItem().toString();
-                String destino = destinyCombo.getSelectedItem().toString();
+                City origen = (City) origenCombo.getSelectedItem();
+                City destino = (City) destinyCombo.getSelectedItem();
 
                 //capa.setText(origen);
 
                 LocalDate date = LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
                 Flight auxi = new Flight(aux, date, origen, destino);
-                int compa = Integer.parseInt(companionField.getText());  //problema si es cero
+                int compa = Integer.parseInt(companionField.getText());  //problema si es null
 
                 double cost = auxi.getDistance() * 150 + ((compa + 1) * 3500) + auxi.getPlane().getRate();  //el costo lo invente (el 150)
 
