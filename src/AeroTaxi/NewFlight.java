@@ -47,10 +47,7 @@ public class NewFlight extends JFrame{
         origenCombo.addItem(City.Santiago);
         origenCombo.addItem(City.Montevideo);
 
-        destinyCombo.addItem("Montevideo");
-        destinyCombo.addItem("Cordoba");
-        destinyCombo.addItem("Santiago");
-        destinyCombo.addItem("Buenos Aires");
+
 
 
         backButton.addActionListener(new ActionListener() {
