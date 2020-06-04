@@ -19,11 +19,11 @@ public class Flight {
 
     public Flight(){}
 
-    public Flight(List<User> users, Airplane plane, LocalDate date, String departure, String destiny) {
+    public Flight(Airplane plane, LocalDate date, String departure, String destiny) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;
-        this.distance = calculateDistance();
+        this.distance = 100;  //ver q error hay
         this.departure = departure;
         this.destiny = destiny;
         this.isDone = false;

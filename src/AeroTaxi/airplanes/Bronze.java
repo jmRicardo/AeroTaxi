@@ -10,6 +10,6 @@ public class Bronze extends Airplane{
     public Bronze(){super();}
     @Override
     public String toString() {
-        return super.toString();
+        return "Bronze";
     }
 }

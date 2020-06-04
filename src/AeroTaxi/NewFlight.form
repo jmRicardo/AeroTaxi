@@ -94,14 +94,6 @@
           <text value="Confirmar"/>
         </properties>
       </component>
-      <component id="6f95b" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="$ 0"/>
-        </properties>
-      </component>
       <component id="dd04" class="javax.swing.JLabel" binding="planeLabel">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -133,7 +125,7 @@
           <text value="Buscar Vuelos"/>
         </properties>
       </component>
-      <component id="94598" class="javax.swing.JTextField">
+      <component id="94598" class="javax.swing.JTextField" binding="capa">
         <constraints>
           <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="35" height="-1"/>
@@ -153,6 +145,14 @@
           <labelFor value="fc23d"/>
           <text value="Asientos Libres"/>
         </properties>
+      </component>
+      <component id="2c5b9" class="javax.swing.JTextField" binding="totalCost">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="55" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
