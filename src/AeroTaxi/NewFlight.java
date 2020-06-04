@@ -38,7 +38,7 @@ public class NewFlight extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        airplanesCombo.setEnabled(false);
+        airplanesCombo.setEnabled(true);
 
         destinyCombo.setEnabled(false);
 
@@ -127,12 +127,12 @@ public class NewFlight extends JFrame{
 
                 //capa.setText(origen);
 
-                LocalDate date = LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                //LocalDate date = LocalDate.parse(dateField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-                Flight auxi = new Flight(aux, date, origen, destino);
+                //Flight auxi = new Flight(aux, date, origen, destino);
                 int compa = Integer.parseInt(companionField.getText());  //problema si es null
 
-                double cost = auxi.getDistance() * 150 + ((compa + 1) * 3500) + auxi.getPlane().getRate();  //el costo lo invente (el 150)
+                double cost = calculateDistance(origen, destino) * 150 + ((compa + 1) * 3500) + aux.getRate();  //el costo lo invente (el 150)
 
                 totalCost.setText(String.valueOf(cost));
 
@@ -149,5 +149,27 @@ public class NewFlight extends JFrame{
                  searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
             }
         });
+    }
+    public int calculateDistance (City departure,City destiny){
+        int aux = 0;
+        if ((departure == City.Buenos_Aires) && (destiny == City.Cordoba) || (departure == City.Cordoba) && (destiny == City.Buenos_Aires)){
+            aux = 695;
+        }
+        if ((departure == City.Buenos_Aires) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Buenos_Aires)){
+            aux = 1400;
+        }
+        if ((departure == City.Buenos_Aires) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Buenos_Aires)){
+            aux = 950;
+        }
+        if ((departure == City.Cordoba) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Cordoba)){
+            aux = 1190;
+        }
+        if ((departure == City.Cordoba) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Cordoba)){
+            aux = 1050;
+        }
+        if ((departure == City.Montevideo) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Montevideo)){
+            aux = 2100;
+        }
+        return aux;
     }
 }
