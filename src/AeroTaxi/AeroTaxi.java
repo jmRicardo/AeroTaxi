@@ -38,7 +38,7 @@ public class AeroTaxi {
     public static final List<User> users = load(usersPath,User.class);
     public static final List<Flight> flights = load(flightsPath,Flight.class);
 
-
+    /// Save and Load de nuestros 3 archivos en 4 funciones
     private static List<Airplane> loadAirplanes(){
         List<Airplane> airplanes = new ArrayList<>();
         BufferedReader buff = null;
@@ -90,7 +90,8 @@ public class AeroTaxi {
         }
     }
 
-    /// Métodos estáticos utiles
+
+    /// Métodos estáticos rapidos y utiles
     public static boolean checkDni(String DNI)
     {
         return dniPattern.matcher(DNI).matches();
@@ -108,6 +109,8 @@ public class AeroTaxi {
     }
 
 
+
+    ///
     public static void main(String[] args) {
 
         try {

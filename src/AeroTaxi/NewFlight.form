@@ -141,7 +141,7 @@
         </constraints>
         <properties>
           <editable value="false"/>
-          <enabled value="true"/>
+          <enabled value="false"/>
           <text value=""/>
         </properties>
       </component>

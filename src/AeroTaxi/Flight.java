@@ -12,6 +12,8 @@ public class Flight {
     private Airplane plane;
     private LocalDate date;
     private int distance;
+    private String origin;
+    private String destiny;
 
     private boolean isDone;
 
@@ -57,6 +59,22 @@ public class Flight {
         this.distance = distance;
     }
 
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getDestiny() {
+        return destiny;
+    }
+
+    public void setDestiny(String destiny) {
+        this.destiny = destiny;
+    }
+
     public boolean isDone() {
         return isDone;
     }
@@ -65,7 +83,7 @@ public class Flight {
         isDone = done;
     }
 
-    /*public double costOfFlight (){  //costo total de un vuelo
+    public double costOfFlight (){  //costo total de un vuelo
         return distance * plane.getCost() + (users.size() * 3500) + plane.getRate();
-    }*/
+    }
 }
