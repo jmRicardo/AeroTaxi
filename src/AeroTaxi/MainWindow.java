@@ -27,6 +27,7 @@ public class MainWindow extends JFrame {
 
 
         exitButton.addActionListener(actionEvent -> dispose());
+
         reserveButton.addActionListener(actionEvent -> {
             dispose();
             UserWindow userwindow = new UserWindow();

@@ -112,7 +112,7 @@ public class AeroTaxi {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainWindow mainwindows = new MainWindow();
+                new MainWindow();
             }
         });
 
