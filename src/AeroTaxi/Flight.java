@@ -12,18 +12,20 @@ public class Flight {
     private Airplane plane;
     private LocalDate date;
     private int distance;
-    private String origin;
+    private String departure;
     private String destiny;
 
     private boolean isDone;
 
     public Flight(){}
 
-    public Flight(List<User> users, Airplane plane, LocalDate date, int distance) {
+    public Flight(List<User> users, Airplane plane, LocalDate date, String departure, String destiny) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;
-        this.distance = distance;
+        this.distance = calculateDistance();
+        this.departure = departure;
+        this.destiny = destiny;
         this.isDone = false;
     }
 
@@ -60,11 +62,11 @@ public class Flight {
     }
 
     public String getOrigin() {
-        return origin;
+        return departure;
     }
 
     public void setOrigin(String origin) {
-        this.origin = origin;
+        this.departure = origin;
     }
 
     public String getDestiny() {
@@ -81,6 +83,29 @@ public class Flight {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    public int calculateDistance (){
+        int aux = 0;
+        if ((departure.equals("Buenos Aires") && destiny.equals("Cordoba")) || (departure.equals("Cordoba") && destiny.equals("Buenos Aires"))){
+            aux = 695;
+        }
+        if ((departure.equals("Buenos Aires") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Buenos Aires"))){
+            aux = 1400;
+        }
+        if ((departure.equals("Buenos Aires") && destiny.equals("Montevideo")) || (departure.equals("Montevideo") && destiny.equals("Buenos Aires"))){
+            aux = 950;
+        }
+        if ((departure.equals("Cordoba") && destiny.equals("Montevideo")) || (departure.equals("Montevideo") && destiny.equals("Cordoba"))){
+            aux = 1190;
+        }
+        if ((departure.equals("Cordoba") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Cordoba"))){
+            aux = 1050;
+        }
+        if ((departure.equals("Montevideo") && destiny.equals("Santiago")) || (departure.equals("Santiago") && destiny.equals("Montevideo"))){
+            aux = 2100;
+        }
+        return aux;
     }
 
     public double costOfFlight (){  //costo total de un vuelo

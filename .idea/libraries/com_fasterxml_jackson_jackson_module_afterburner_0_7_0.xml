@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="com.fasterxml.jackson:jackson-module-afterburner:0.7.0" type="repository">
+    <properties maven-id="com.fasterxml.jackson:jackson-module-afterburner:0.7.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jackson-module-afterburner/0.7.0/jackson-module-afterburner-0.7.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.1/jackson-mapper-asl-1.9.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.1/jackson-core-asl-1.9.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mrbean/1.9.1/jackson-mrbean-1.9.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
