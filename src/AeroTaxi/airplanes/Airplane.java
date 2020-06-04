@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Bronze.class, name = "Bronze"),
-        @JsonSubTypes.Type(value = Silver.class, name = "Silver"),
-        @JsonSubTypes.Type(value = Gold.class, name = "Gold")
+        @JsonSubTypes.Type(value = Bronze.class, name = "AeroTaxi.airplanes.Bronze"),
+        @JsonSubTypes.Type(value = Silver.class, name = "AeroTaxi.airplanes.Silver"),
+        @JsonSubTypes.Type(value = Gold.class, name = "AeroTaxi.airplanes.Gold")
 })
 public abstract class Airplane {
 
@@ -21,7 +21,7 @@ public abstract class Airplane {
     private Propulsion engine;
     private int rate;
 
-    public Airplane(){}
+    protected Airplane(){}
 
     protected Airplane(int fuel, double cost, int capacity, double maxSpeed, Propulsion engine, int rate) {
         this.fuel = fuel;

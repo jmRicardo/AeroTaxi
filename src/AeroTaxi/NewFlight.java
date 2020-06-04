@@ -38,6 +38,10 @@ public class NewFlight extends JFrame{
         origenCombo.addItem("Santiago");
         origenCombo.addItem("Montevideo");
 
+        for (Airplane a : AeroTaxi.airplanes) {
+            airplanesCombo.addItem(a);
+        }
+
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
