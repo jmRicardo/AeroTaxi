@@ -20,4 +20,11 @@
   "destiny" : "Cordoba",
   "done" : false,
   "origin" : "Buenos_Aires"
+} ], [ "AeroTaxi.Flight", {
+  "users" : null,
+  "plane" : null,
+  "date" : null,
+  "destiny" : null,
+  "done" : false,
+  "origin" : null
 } ] ]
