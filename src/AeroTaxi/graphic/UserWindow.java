@@ -1,4 +1,6 @@
-package graphic;
+package AeroTaxi.graphic;
+
+import AeroTaxi.AeroTaxi;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +15,7 @@ public class UserWindow extends JFrame {
 
     public UserWindow(){
 
-        ImageIcon img = new ImageIcon("aeroplano.png");
+        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);

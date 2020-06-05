@@ -4,6 +4,7 @@ import AeroTaxi.airplanes.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import AeroTaxi.graphic.MainWindow;
 
 import javax.swing.*;
 import java.io.*;
@@ -19,15 +20,12 @@ public class AeroTaxi {
     private static final Pattern datePattern = Pattern.compile("\\d{1,2}\\/\\d{1,2}\\/202\\d");
 
     /// Rutas de aceeso a archivos
-    public static final String airplanesPath = "airplanes.json";
-    public static final String usersPath = "users.json";
-    public static final String flightsPath = "flights.json";
+    public static final String airplanesPath = "src/AeroTaxi/database/airplanes.json";
+    public static final String usersPath = "src/AeroTaxi/database/users.json";
+    public static final String flightsPath = "src/AeroTaxi/database/flights.json";
+    public static final String logoPath = "src/AeroTaxi/images/logo2.png";
+    public static final String iconPath = "src/AeroTaxi/images/aeroplano.png";
 
-    /// Adapter para usar reconocer herencia
-    private static final RuntimeTypeAdapterFactory<Airplane> airplaneAdapterFactory = RuntimeTypeAdapterFactory.of(Airplane.class, "type")
-            .registerSubtype(Gold.class, "Gold")
-            .registerSubtype(Silver.class, "Silver")
-            .registerSubtype(Bronze.class, "Bronze");
 
     /// Arreglos estáticos
     public static final List<Airplane> airplanes = loadFile(airplanesPath);

@@ -1,4 +1,4 @@
-package graphic;
+package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
 import AeroTaxi.City;
@@ -33,7 +33,7 @@ public class NewFlight extends JFrame{
     //asd
     public NewFlight() throws HeadlessException {
 
-        ImageIcon img = new ImageIcon("aeroplano.png");
+        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);

@@ -1,6 +1,6 @@
 package AeroTaxi;
 
-import graphic.AdminWindow;
+import AeroTaxi.graphic.AdminWindow;
 
 import javax.swing.*;
 

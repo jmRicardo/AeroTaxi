@@ -1,4 +1,6 @@
-package graphic;
+package AeroTaxi.graphic;
+
+import AeroTaxi.AeroTaxi;
 
 import javax.swing.*;
 
@@ -12,9 +14,9 @@ public class MainWindow extends JFrame {
     public MainWindow(){
 
 
-        image.setIcon(new ImageIcon("logo2.png"));
+        image.setIcon(new ImageIcon(AeroTaxi.logoPath));
 
-        ImageIcon img = new ImageIcon("aeroplano.png");
+        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
          add(root);
          setResizable(false);

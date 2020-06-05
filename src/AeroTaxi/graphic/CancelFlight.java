@@ -1,7 +1,6 @@
-package graphic;
+package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
-import graphic.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +20,7 @@ public class CancelFlight extends JFrame {
 
     public CancelFlight() {
 
-        ImageIcon img = new ImageIcon("aeroplano.png");
+        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);

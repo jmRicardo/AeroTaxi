@@ -1,4 +1,4 @@
-package graphic;
+package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
 import AeroTaxi.User;
@@ -21,7 +21,7 @@ public class NewUser extends JFrame{
 
     public NewUser(){
 
-        ImageIcon img = new ImageIcon("aeroplano.png");
+        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
