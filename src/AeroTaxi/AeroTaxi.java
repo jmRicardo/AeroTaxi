@@ -1,12 +1,9 @@
 package AeroTaxi;
 
 import AeroTaxi.airplanes.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import graphic.MainWindow;
 
 import javax.swing.*;
 import java.io.*;
@@ -33,62 +30,57 @@ public class AeroTaxi {
             .registerSubtype(Bronze.class, "Bronze");
 
     /// Arreglos estáticos
-    public static final List<Airplane> airplanes = loadAirplanes();
-    public static final List<User> users = load(usersPath,User.class);
-    public static final List<Flight> flights = load(flightsPath,Flight.class);
+    public static final List<Airplane> airplanes = loadFile(airplanesPath);
+    public static final List<User> users = loadFile(usersPath);
+    public static final List<Flight> flights = loadFile(flightsPath);
 
     /// Save and Load de nuestros 3 archivos en 4 funciones
-    private static List<Airplane> loadAirplanes(){
-        List<Airplane> airplanes = new ArrayList<>();
+
+    public static <T> void saveFile(String path, List<T> list)
+    {
+        BufferedWriter buff = null;
+        try {
+            buff = new BufferedWriter(new FileWriter(new File(path)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enableDefaultTyping();
+        String serialized = null;
+        try {
+            serialized = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(list);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        try {
+            buff.write(serialized);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            buff.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static <T> List<T> loadFile(String path){
+        List<T> list = new ArrayList<>();
         BufferedReader buff = null;
         try {
-            buff = new BufferedReader(new FileReader(new File("airplanes.json")));
+            buff = new BufferedReader(new FileReader(new File(path)));
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado");;
         }
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
         try {
-            airplanes = mapper.readValue(buff, new TypeReference<ArrayList<Airplane>>(){});
+            list = mapper.readValue(buff, new TypeReference<ArrayList<T>>(){});
         } catch (IOException e) {
             System.out.println("Error al deserializar!");;
         }
-        return airplanes;
+        return list;
     }
-
-    public static <T> List<T> load(String path,Class<T> t)
-    {
-        try {
-            BufferedReader buffReader = new BufferedReader(new FileReader(new File(path)));
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            StringBuilder text = new StringBuilder();
-            while (buffReader.ready()){
-                text.append(buffReader.readLine());
-            }
-            List<T> data = gson.fromJson(text.toString(), TypeToken.getParameterized(List.class, t).getType());
-            buffReader.close();
-            return data;
-        }catch (FileNotFoundException e){
-            System.out.println("Archivo no existe!");
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
-    }
-
-    public static <T> void save(String path,List<T> lista){
-        BufferedWriter buffwriter = null;
-        try {
-            buffwriter = new BufferedWriter(new FileWriter(new File(path)));
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String serialized = gson.toJson(lista);
-            buffwriter.write(serialized);
-            buffwriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     /// Métodos estáticos rapidos y utiles
     public static boolean checkDni(String DNI)
@@ -111,6 +103,10 @@ public class AeroTaxi {
 
     ///
     public static void main(String[] args) {
+
+        System.out.println(flights);
+        System.out.println(airplanes);
+        System.out.println(users);
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
