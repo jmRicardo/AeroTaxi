@@ -1,5 +1,8 @@
-package AeroTaxi;
+package graphic;
 
+import AeroTaxi.AeroTaxi;
+import AeroTaxi.City;
+import AeroTaxi.Flight;
 import AeroTaxi.airplanes.Airplane;
 
 import javax.swing.*;

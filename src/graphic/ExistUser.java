@@ -1,9 +1,13 @@
-package AeroTaxi;
+package graphic;
+
+import AeroTaxi.AeroTaxi;
+import AeroTaxi.User;
+import graphic.MainWindow;
+import graphic.NewFlight;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.regex.Pattern;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
