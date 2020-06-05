@@ -10,21 +10,27 @@ public class Flight {
 
     private List<User> users;
     private Airplane plane;
-    private LocalDate date;
+    private String date;
     private City departure;
     private City destiny;
 
     private boolean isDone;
 
-    public Flight(){}
-
-    public Flight(Airplane plane, LocalDate date, City departure, City destiny) {
+    public Flight(Airplane plane, String date, City departure, City destiny) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;
         this.departure = departure;
         this.destiny = destiny;
         this.isDone = false;
+    }
+
+    public Flight() {
+    }
+
+    public void addUser(User user)
+    {
+        users.add(user);
     }
 
     public List<User> getUsers() {
@@ -43,11 +49,11 @@ public class Flight {
         this.plane = plane;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -75,6 +81,15 @@ public class Flight {
         isDone = done;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "users=" + users +
+                ", plane=" + plane +
+                ", date='" + date + '\'' +
+                ", departure=" + departure +
+                ", destiny=" + destiny +
+                ", isDone=" + isDone +
+                '}';
+    }
 }

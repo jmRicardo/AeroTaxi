@@ -96,7 +96,7 @@ public class NewFlight extends JFrame{
 
                 Flight flight = new Flight();
                 AeroTaxi.flights.add(flight);
-                AeroTaxi.save(AeroTaxi.flightsPath,AeroTaxi.flights);
+                AeroTaxi.saveFile(AeroTaxi.flightsPath,AeroTaxi.flights);
         });
         searchButton.addActionListener(e -> {
 

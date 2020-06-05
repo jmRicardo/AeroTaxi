@@ -1,0 +1,23 @@
+[ [ "AeroTaxi.Flight", {
+  "users" : [ "java.util.ArrayList", [ {
+    "name" : "PEpe",
+    "lastName" : "Mujica",
+    "age" : 99,
+    "dni" : "4.123.123"
+  } ] ],
+  "plane" : {
+    "type" : "AeroTaxi.airplanes.Gold",
+    "fuel" : 900,
+    "cost" : 350.0,
+    "capacity" : 900,
+    "maxSpeed" : 1000.0,
+    "engine" : "reaction",
+    "rate" : 6000,
+    "catering" : "MILANGA CON PURE PAPURRI!",
+    "wifi" : true
+  },
+  "date" : "10/6/2020",
+  "destiny" : "Cordoba",
+  "done" : false,
+  "origin" : "Buenos_Aires"
+} ] ]
