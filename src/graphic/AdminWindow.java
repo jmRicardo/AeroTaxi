@@ -1,4 +1,4 @@
-package AeroTaxi;
+package graphic;
 
 import javax.swing.*;
 
