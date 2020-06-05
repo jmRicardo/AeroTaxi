@@ -4,6 +4,7 @@ import AeroTaxi.AeroTaxi;
 import AeroTaxi.City;
 import AeroTaxi.Flight;
 import AeroTaxi.airplanes.Airplane;
+import AeroTaxi.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +32,7 @@ public class NewFlight extends JFrame{
     private JTextField totalCost;
 
     //asd
-    public NewFlight() throws HeadlessException {
+    public NewFlight(User user) throws HeadlessException {
 
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());

@@ -2,6 +2,7 @@ package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
 import AeroTaxi.User;
+import AeroTaxi.graphic.NewFlight;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,6 +46,8 @@ public class NewUser extends JFrame{
             AeroTaxi.users.add(user);
 //          se graba en el archivo
             AeroTaxi.saveFile(AeroTaxi.usersPath, AeroTaxi.users);
+
+            new NewFlight(user);
 
         });
 

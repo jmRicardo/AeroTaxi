@@ -73,7 +73,7 @@ public class ExistUser extends JFrame {
         }
         else{
             dispose();
-            NewFlight newflight = new NewFlight();
+            new NewFlight(find);
         }
 
     }
