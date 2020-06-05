@@ -112,12 +112,7 @@ public class AeroTaxi {
             e1.printStackTrace();
         }
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainWindow();
-            }
-        });
+        SwingUtilities.invokeLater(() -> new MainWindow());
 
     }
 

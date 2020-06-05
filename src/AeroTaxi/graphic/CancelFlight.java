@@ -16,7 +16,7 @@ public class CancelFlight extends JFrame {
     private JLabel exampleLabel;
     private JButton searchButton;
     private JLabel isValidLabel;
-    private JTable table1;
+    private JList flightList;
 
     public CancelFlight() {
 
@@ -40,6 +40,19 @@ public class CancelFlight extends JFrame {
                 checkStatus();
             }
         });
+
+        flightList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        flightList.setLayoutOrientation(JList.VERTICAL);
+        flightList.setVisibleRowCount(-1);
+
+        DefaultListModel listModel = new DefaultListModel();
+        listModel.addElement("Jane Doe");
+        listModel.addElement("John Smith");
+        listModel.addElement("Kathy Green");
+        listModel.addElement(AeroTaxi.airplanes);
+
+        flightList.setModel(listModel);
+
         
     }
 
