@@ -8,6 +8,8 @@ import AeroTaxi.graphic.MainWindow;
 
 import javax.swing.*;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -105,6 +107,10 @@ public class AeroTaxi {
                  list.add(flight);
         }
         return list;
+    }
+
+    public static void sortFlyByDate(){
+        // TODO
     }
 
 

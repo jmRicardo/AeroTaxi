@@ -42,17 +42,14 @@ public class NewFlight extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        airplanesCombo.setEnabled(true);
 
+        airplanesCombo.setEnabled(true);
         destinyCombo.setEnabled(false);
 
         origenCombo.addItem(City.Buenos_Aires);
         origenCombo.addItem(City.Cordoba);
         origenCombo.addItem(City.Santiago);
         origenCombo.addItem(City.Montevideo);
-
-
-
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -151,6 +148,13 @@ public class NewFlight extends JFrame{
             public void keyReleased(KeyEvent e) {
                 super.keyReleased(e);
                  searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
+            }
+        });
+        dateField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+
             }
         });
     }
