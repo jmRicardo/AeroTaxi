@@ -67,14 +67,14 @@ public class ExistUser extends JFrame {
     }
 
     private void check(){
-        User find = AeroTaxi.searchUser(dniText.getText());
-        if (find == null){
-            showMessageDialog(null, "El usuario no existe!");
-        }
-        else{
-            dispose();
-            new NewFlight(find);
-        }
+         User find = AeroTaxi.searchUser(dniText.getText());
+            if (find == null){
+                showMessageDialog(null, "El usuario no existe!");
+            }
+            else{
+                dispose();
+                new NewFlight(find);
+            }
 
     }
 

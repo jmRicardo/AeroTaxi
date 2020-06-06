@@ -1,11 +1,17 @@
 package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
+import AeroTaxi.User;
+import AeroTaxi.Flight;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class CancelFlight extends JFrame {
     private JPanel root;
@@ -17,6 +23,9 @@ public class CancelFlight extends JFrame {
     private JButton searchButton;
     private JLabel isValidLabel;
     private JList flightList;
+
+    private List<Flight> userFlights;
+    DefaultListModel listModel;
 
     public CancelFlight() {
 
@@ -45,15 +54,24 @@ public class CancelFlight extends JFrame {
         flightList.setLayoutOrientation(JList.VERTICAL);
         flightList.setVisibleRowCount(-1);
 
-        DefaultListModel listModel = new DefaultListModel();
-        listModel.addElement("Jane Doe");
-        listModel.addElement("John Smith");
-        listModel.addElement("Kathy Green");
-        listModel.addElement(AeroTaxi.airplanes);
-
+        /// lista de vuelos por DNI, la lista se actualiza y automaticamente se ve reflejada en la JList
+        listModel = new DefaultListModel();
         flightList.setModel(listModel);
 
-        
+
+        searchButton.addActionListener(e -> {
+            User find = AeroTaxi.searchUser(dniText.getText());
+            if (find == null){
+                showMessageDialog(null, "El usuario no existe!");
+            }
+            else{
+                userFlights = searchFlightsByUser(user);
+                for (Flight flight : userFlights) {
+                    listModel.addElement(flight);
+                }
+            }
+
+        });
     }
 
     private void checkStatus(){

@@ -97,6 +97,15 @@ public class AeroTaxi {
       return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
     }
 
+    public static List<Flight> searchFlyByUser(User user) {
+        List<Flight> list = new ArrayList<>();
+        for (Flight flight : flights) {
+             if (flight.getUsers().contains(user))
+                 list.add(flight);
+        }
+        return list;
+    }
+
 
 
     ///
