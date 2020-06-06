@@ -6,6 +6,8 @@ import AeroTaxi.Flight;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class CancelFlight extends JFrame {
     private JList flightList;
 
     private List<Flight> userFlights;
+    User find = null;
     DefaultListModel listModel;
 
     public CancelFlight() {
@@ -60,16 +63,24 @@ public class CancelFlight extends JFrame {
 
 
         searchButton.addActionListener(e -> {
-            User find = AeroTaxi.searchUser(dniText.getText());
+            find = AeroTaxi.searchUser(dniText.getText());
             if (find == null){
                 showMessageDialog(null, "El usuario no existe!");
             }
             else{
                 userFlights = AeroTaxi.searchFlyByUser(find);
                 for (Flight flight : userFlights) {
-                    listModel.addElement(flight);
+                    listModel.addElement("Fecha: "+ flight.getDate()+
+                                            "  Origen: "+ flight.getOrigin() +
+                                                "  Destino: " + flight.getDestiny());
                 }
             }
+
+        });
+        cancelButton.addActionListener(e -> {
+            int x = flightList.getSelectedIndex();
+            userFlights.get(x).getUsers().remove(find);
+            AeroTaxi.saveFile(AeroTaxi.flightsPath,AeroTaxi.flights);
 
         });
     }

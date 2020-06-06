@@ -54,4 +54,24 @@
   "destiny" : "Montevideo",
   "done" : false,
   "origin" : "Buenos_Aires"
+} ], [ "AeroTaxi.Flight", {
+  "users" : [ "java.util.ArrayList", [ {
+    "name" : "Sandy",
+    "lastName" : "Lopez",
+    "age" : 25,
+    "dni" : "38.313.637"
+  } ] ],
+  "plane" : {
+    "type" : "AeroTaxi.airplanes.Bronze",
+    "fuel" : 500,
+    "cost" : 100.0,
+    "capacity" : 100,
+    "maxSpeed" : 450.0,
+    "engine" : "propeller",
+    "rate" : 3000
+  },
+  "date" : "8/12/2021",
+  "destiny" : "Cordoba",
+  "done" : false,
+  "origin" : "Santiago"
 } ] ]
