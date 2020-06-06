@@ -65,7 +65,7 @@ public class CancelFlight extends JFrame {
                 showMessageDialog(null, "El usuario no existe!");
             }
             else{
-                userFlights = searchFlightsByUser(user);
+                userFlights = AeroTaxi.searchFlyByUser(find);
                 for (Flight flight : userFlights) {
                     listModel.addElement(flight);
                 }

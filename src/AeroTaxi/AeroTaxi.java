@@ -100,7 +100,8 @@ public class AeroTaxi {
     public static List<Flight> searchFlyByUser(User user) {
         List<Flight> list = new ArrayList<>();
         for (Flight flight : flights) {
-             if (flight.getUsers().contains(user))
+            List<User> aux = flight.getUsers();
+            if (aux!=null && aux.contains(user))
                  list.add(flight);
         }
         return list;
