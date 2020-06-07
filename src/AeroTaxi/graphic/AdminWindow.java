@@ -64,9 +64,8 @@ public class AdminWindow extends JFrame {
         searchButton.addActionListener(e -> {
             flights.removeAllElements();
             LocalDate localDate;
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             try{
-                localDate =  LocalDate.parse(dateField.getText(),formatter);
+                localDate =  LocalDate.parse(dateField.getText(),AeroTaxi.dateFormat);
                 List<Flight> list = AeroTaxi.searchFlyByDate(localDate);
                 if (list!=null){
                     for (Flight flight : list) {
