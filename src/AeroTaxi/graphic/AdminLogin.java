@@ -8,6 +8,11 @@ import java.awt.*;
 public class AdminLogin extends JFrame {
 
     private JPanel root;
+    private JTextField adminField;
+    private JPasswordField passField;
+    private JButton exitButton;
+    private JLabel passLabel;
+    private JLabel userLabel;
 
     public AdminLogin() {
 
@@ -19,5 +24,7 @@ public class AdminLogin extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        exitButton.addActionListener(actionEvent -> dispose());
     }
 }
