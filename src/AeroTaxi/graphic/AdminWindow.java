@@ -19,8 +19,8 @@ public class AdminWindow extends JFrame {
     private JList flightsList;
     private JTextField dateField;
     private JButton searchButton;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField planeField;
+    private JTextField totalField;
     private DefaultListModel users;
     private DefaultListModel flights;
 
@@ -61,6 +61,7 @@ public class AdminWindow extends JFrame {
                 searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
             }
         });
+
         searchButton.addActionListener(e -> {
             flights.removeAllElements();
             LocalDate localDate;

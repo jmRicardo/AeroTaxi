@@ -45,7 +45,7 @@ public class AeroTaxi {
         try {
             buff = new BufferedWriter(new FileWriter(new File(path)));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("error al abrir el archivo para escritura!");
         }
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
@@ -53,17 +53,17 @@ public class AeroTaxi {
         try {
             serialized = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(list);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            System.out.println("error al serializar!");
         }
         try {
             buff.write(serialized);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("error al escribir el archivo!");
         }
         try {
             buff.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("error al cerrar el archivo!");
         }
     }
 
@@ -105,8 +105,32 @@ public class AeroTaxi {
     public static List<Flight> searchFlyByDate(LocalDate ld){
         return  AeroTaxi.flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
+    public static List<Flight> searchFlyByUser(User user){
+        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().contains(user)).collect(Collectors.toList());
+    }
 
-    public static List<Flight> searchFlyByUser(User user) {
+    /// a mejorar
+    public static String moreUsedAirplane(User user){
+        List<Flight> list = searchFlyByUser(user);
+        if (list==null)
+            return "Ninguno";
+        int gold = 0;
+        int silver = 0;
+        int bronze = 0;
+        for (Flight l : list) {
+            if (l.getPlane() instanceof Gold)
+                gold++;
+            if (l.getPlane() instanceof Silver)
+                silver++;
+            if (l.getPlane() instanceof Bronze)
+                bronze++;
+        }
+        String result;
+        if ()
+        return
+    }
+
+   /* public static List<Flight> searchFlyByUser(User user) {
         List<Flight> list = new ArrayList<>();
         for (Flight flight : flights) {
             List<User> aux = flight.getUsers();
@@ -114,7 +138,7 @@ public class AeroTaxi {
                  list.add(flight);
         }
         return list;
-    }
+    }*/
 
     public static void sortFlyByDate(){
         // TODO
