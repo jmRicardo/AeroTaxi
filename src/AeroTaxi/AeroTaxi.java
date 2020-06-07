@@ -10,8 +10,7 @@ import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -114,31 +113,18 @@ public class AeroTaxi {
         List<Flight> list = searchFlyByUser(user);
         if (list==null)
             return "Ninguno";
-        int gold = 0;
-        int silver = 0;
-        int bronze = 0;
+        HashMap<Airplane,Integer> map = new HashMap<>();
         for (Flight l : list) {
-            if (l.getPlane() instanceof Gold)
-                gold++;
-            if (l.getPlane() instanceof Silver)
-                silver++;
-            if (l.getPlane() instanceof Bronze)
-                bronze++;
+            Airplane aux = l.getPlane();
+            if (map.containsKey(aux)) {
+                map.put(aux,map.get(aux) + 1);
+            }
+            else {
+                map.put(aux, 1);
+            }
         }
-        String result;
-        if ()
-        return
+        return map.entrySet().stream().max(Comparator.comparing())
     }
-
-   /* public static List<Flight> searchFlyByUser(User user) {
-        List<Flight> list = new ArrayList<>();
-        for (Flight flight : flights) {
-            List<User> aux = flight.getUsers();
-            if (aux!=null && aux.contains(user))
-                 list.add(flight);
-        }
-        return list;
-    }*/
 
     public static void sortFlyByDate(){
         // TODO
@@ -148,10 +134,6 @@ public class AeroTaxi {
 
     ///
     public static void main(String[] args) {
-
-        System.out.println(flights);
-        System.out.println(airplanes);
-        System.out.println(users);
 
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
