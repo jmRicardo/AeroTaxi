@@ -6,17 +6,29 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 public class Flight {
 
     private List<User> users;
     private Airplane plane;
-    private String date;
+
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate date;
+
     private City departure;
     private City destiny;
 
     private boolean isDone;
 
-    public Flight(Airplane plane, String date, City departure, City destiny) {
+    public Flight(Airplane plane, LocalDate date, City departure, City destiny) {
         this.users = new ArrayList<User>();
         this.plane = plane;
         this.date = date;
@@ -49,11 +61,11 @@ public class Flight {
         this.plane = plane;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

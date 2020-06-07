@@ -69,7 +69,8 @@ public class AeroTaxi {
         try {
             buff = new BufferedReader(new FileReader(new File(path)));
         } catch (FileNotFoundException e) {
-            System.out.println("Archivo no encontrado");;
+            System.out.println("Archivo no encontrado");
+            return list;
         }
         ObjectMapper mapper = new ObjectMapper();
         mapper.enableDefaultTyping();
