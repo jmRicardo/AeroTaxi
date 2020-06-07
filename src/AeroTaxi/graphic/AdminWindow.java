@@ -50,6 +50,7 @@ public class AdminWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int x = usersList.getSelectedIndex();
+                planeField.setText(AeroTaxi.moreUsedAirplane(AeroTaxi.users.get(x)));
 
             }
         });

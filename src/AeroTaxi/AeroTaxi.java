@@ -123,7 +123,7 @@ public class AeroTaxi {
                 map.put(aux, 1);
             }
         }
-        return map.entrySet().stream().max(Comparator.comparing())
+        return map.entrySet().stream().max((entry1, entry2) -> entry1.getValue() - entry2.getValue()).get().getKey().toString();
     }
 
     public static void sortFlyByDate(){
