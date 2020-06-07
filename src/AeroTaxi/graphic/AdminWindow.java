@@ -2,22 +2,27 @@ package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
 import AeroTaxi.User;
+import AeroTaxi.Flight;
 
 import javax.swing.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class AdminWindow extends JFrame {
 
     private JPanel root;
     private JButton exitButton;
     private JList usersList;
-    private JList list1;
+    private JList flightsList;
     private JTextField dateField;
     private JButton searchButton;
     private JTextField textField1;
     private JTextField textField2;
     private DefaultListModel users;
+    private DefaultListModel flights;
 
     public AdminWindow(){
 
@@ -33,14 +38,47 @@ public class AdminWindow extends JFrame {
         exitButton.addActionListener(actionEvent -> dispose());
 
         users = new DefaultListModel();
+        flights = new DefaultListModel();
+
         users.addAll(AeroTaxi.users);
+
         usersList.setModel(users);
+        flightsList.setModel(flights);
+
         usersList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int x = usersList.getSelectedIndex();
-                System.out.println("clickeaste el >> " + x);
+
+            }
+        });
+
+        dateField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
+            }
+        });
+        searchButton.addActionListener(e -> {
+            flights.removeAllElements();
+            LocalDate localDate;
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            try{
+                localDate =  LocalDate.parse(dateField.getText(),formatter);
+                List<Flight> list = AeroTaxi.searchFlyByDate(localDate);
+                if (list!=null){
+                    for (Flight flight : list) {
+                        flights.addElement("Fecha: "+ flight.getDate()+
+                                "  Origen: "+ flight.getOrigin() +
+                                "  Destino: " + flight.getDestiny() +
+                                "  Avion:" + flight.getPlane().getClass().getName());
+                    }
+                }
+            }catch (DateTimeParseException exception)
+            {
+                System.out.println("Fecha invalida!" + exception);
             }
         });
     }

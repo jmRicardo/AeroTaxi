@@ -11,6 +11,32 @@
     "dni" : "38.313.637"
   } ] ],
   "plane" : {
+    "type" : "AeroTaxi.airplanes.Silver",
+    "fuel" : 700,
+    "cost" : 200.0,
+    "capacity" : 350,
+    "maxSpeed" : 700.0,
+    "engine" : "piston",
+    "rate" : 4000,
+    "catering" : "CHORI CON MUCHO CHIMI!"
+  },
+  "date" : "10/10/2020",
+  "destiny" : "Buenos_Aires",
+  "done" : false,
+  "origin" : "Montevideo"
+} ], [ "AeroTaxi.Flight", {
+  "users" : [ "java.util.ArrayList", [ {
+    "name" : "Juan",
+    "lastName" : "Ricardo",
+    "age" : 31,
+    "dni" : "34.313.637"
+  }, {
+    "name" : "Sandy",
+    "lastName" : "Lopez",
+    "age" : 25,
+    "dni" : "38.313.637"
+  } ] ],
+  "plane" : {
     "type" : "AeroTaxi.airplanes.Bronze",
     "fuel" : 500,
     "cost" : 100.0,
@@ -19,8 +45,33 @@
     "engine" : "propeller",
     "rate" : 3000
   },
-  "date" : "05/07/2021",
-  "destiny" : "Cordoba",
+  "date" : "10/10/2020",
+  "destiny" : "Santiago",
   "done" : false,
-  "origin" : "Santiago"
+  "origin" : "Cordoba"
+} ], [ "AeroTaxi.Flight", {
+  "users" : [ "java.util.ArrayList", [ {
+    "name" : "Juan",
+    "lastName" : "Ricardo",
+    "age" : 31,
+    "dni" : "34.313.637"
+  }, {
+    "name" : "Sandy",
+    "lastName" : "Lopez",
+    "age" : 25,
+    "dni" : "38.313.637"
+  } ] ],
+  "plane" : {
+    "type" : "AeroTaxi.airplanes.Bronze",
+    "fuel" : 500,
+    "cost" : 100.0,
+    "capacity" : 100,
+    "maxSpeed" : 450.0,
+    "engine" : "propeller",
+    "rate" : 3000
+  },
+  "date" : "10/10/2020",
+  "destiny" : "Santiago",
+  "done" : false,
+  "origin" : "Cordoba"
 } ] ]

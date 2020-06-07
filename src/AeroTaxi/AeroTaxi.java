@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class AeroTaxi {
 
@@ -20,6 +21,9 @@ public class AeroTaxi {
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
     private static final Pattern datePattern = Pattern.compile("\\d{1,2}\\/\\d{1,2}\\/202\\d");
+
+    /// Formato de Dia
+    public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /// Rutas de aceeso a archivos
     public static final String airplanesPath = "src/AeroTaxi/database/airplanes.json";
@@ -97,6 +101,9 @@ public class AeroTaxi {
     }
     public static User searchUser(String DNI){
       return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
+    }
+    public static List<Flight> searchFlyByDate(LocalDate ld){
+        return  AeroTaxi.flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
 
     public static List<Flight> searchFlyByUser(User user) {
