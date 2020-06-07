@@ -1,6 +1,7 @@
 package AeroTaxi.graphic;
 
 import AeroTaxi.AeroTaxi;
+import AeroTaxi.User;
 
 import javax.swing.*;
 
@@ -8,6 +9,8 @@ public class AdminWindow extends JFrame {
 
     private JPanel root;
     private JButton exitButton;
+    private JList usersList;
+    private DefaultListModel users;
 
     public AdminWindow(){
 
@@ -21,5 +24,9 @@ public class AdminWindow extends JFrame {
         setVisible(true);
 
         exitButton.addActionListener(actionEvent -> dispose());
+
+        users = new DefaultListModel();
+        users.addAll(AeroTaxi.users);
+        usersList.setModel(users);
     }
 }

@@ -43,7 +43,6 @@ public class AdminLogin extends JFrame {
         enterButton.addComponentListener(new ComponentAdapter() {
         });
         enterButton.addActionListener(e -> {
-            System.out.println(passField.getPassword());
             if (adminField.getText().equals(adminUser) && Arrays.equals(passField.getPassword(), password)){
                 dispose();
                 new AdminWindow();
