@@ -157,6 +157,8 @@ public class NewFlight extends JFrame{
 
             }
         });
+        dateField.addKeyListener(new KeyAdapter() {
+        });
     }
     public int calculateDistance (City departure,City destiny){
         int aux = 0;

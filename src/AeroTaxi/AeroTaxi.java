@@ -35,7 +35,6 @@ public class AeroTaxi {
     public static final List<Flight> flights = loadFile(flightsPath);
 
     /// Save and Load de nuestros 3 archivos en 4 funciones
-
     public static <T> void saveFile(String path, List<T> list)
     {
         BufferedWriter buff = null;
