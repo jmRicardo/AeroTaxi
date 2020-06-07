@@ -1,7 +1,6 @@
 package AeroTaxi;
 
-import AeroTaxi.graphic.AdminWindow;
-
+import AeroTaxi.graphic.AdminLogin;
 import javax.swing.*;
 
 public class AdminMain {
@@ -17,7 +16,7 @@ public class AdminMain {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new AdminWindow();
+                new AdminLogin();
             }
         });
 
