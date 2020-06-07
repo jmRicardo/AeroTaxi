@@ -8,4 +8,9 @@
   "lastName" : "Lopez",
   "age" : 25,
   "dni" : "38.313.637"
+} ], [ "AeroTaxi.User", {
+  "name" : "Elcho",
+  "lastName" : "Rizo",
+  "age" : 10,
+  "dni" : "6.666.666"
 } ] ]

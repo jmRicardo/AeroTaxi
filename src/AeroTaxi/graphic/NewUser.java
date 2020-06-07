@@ -46,7 +46,7 @@ public class NewUser extends JFrame{
             AeroTaxi.users.add(user);
 //          se graba en el archivo
             AeroTaxi.saveFile(AeroTaxi.usersPath, AeroTaxi.users);
-
+            dispose();
             new NewFlight(user);
 
         });

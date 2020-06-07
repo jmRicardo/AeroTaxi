@@ -111,7 +111,7 @@ public class AeroTaxi {
     /// a mejorar
     public static String moreUsedAirplane(User user){
         List<Flight> list = searchFlyByUser(user);
-        if (list==null)
+        if (list.isEmpty())
             return "Ninguno";
         HashMap<Airplane,Integer> map = new HashMap<>();
         for (Flight l : list) {
