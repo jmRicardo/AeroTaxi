@@ -8,13 +8,14 @@ import AeroTaxi.core.User;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
+import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class NewFlight extends JFrame{
     private JLabel dateLabel;
@@ -42,55 +43,29 @@ public class NewFlight extends JFrame{
         setSize(300,500);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setVisible(true);
-
-        airplanesCombo.setEnabled(true);
-        destinyCombo.setEnabled(false);
+        setVisible(true);;
 
         for (City c:City.values()){
             origenCombo.addItem(c.name());
+            destinyCombo.addItem(c.name());
         }
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                dispose();
-                MainWindow mainwindow = new MainWindow();
-            }
+        origenCombo.setSelectedIndex(0);
+        destinyCombo.setSelectedIndex(1);
+
+        origenCombo.addActionListener(e -> {
+            while (origenCombo.getSelectedIndex() == destinyCombo.getSelectedIndex())
+                destinyCombo.setSelectedIndex(new Random().nextInt(City.values().length));
         });
 
-        //se espera que el combo box origen haga la accion, despues se remueve siempre los del combobox destino y seguido la series de if
-        //selecciona la opcion del origen y despues se asignan los destinos correspondientes
-        origenCombo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                destinyCombo.setEnabled(true);
-                destinyCombo.removeAllItems();
-                if (origenCombo.getSelectedItem().equals(City.Montevideo)) {
-                    destinyCombo.addItem(City.Cordoba);
-                    destinyCombo.addItem(City.Santiago);
-                    destinyCombo.addItem(City.Buenos_Aires);
-                }
+        destinyCombo.addActionListener(e -> {
+            while (origenCombo.getSelectedIndex() == destinyCombo.getSelectedIndex())
+                origenCombo.setSelectedIndex(new Random().nextInt(City.values().length));
+        });
 
-                if (origenCombo.getSelectedItem().equals(City.Buenos_Aires)) {
-                    destinyCombo.addItem(City.Cordoba);
-                    destinyCombo.addItem(City.Santiago);
-                    destinyCombo.addItem(City.Montevideo);
-                }
-
-                if (origenCombo.getSelectedItem().equals(City.Cordoba)) {
-                    destinyCombo.addItem(City.Buenos_Aires);
-                    destinyCombo.addItem(City.Santiago);
-                    destinyCombo.addItem(City.Montevideo);
-                }
-
-                if (origenCombo.getSelectedItem().equals(City.Santiago)) {
-                    destinyCombo.addItem(City.Cordoba);
-                    destinyCombo.addItem(City.Buenos_Aires);
-                    destinyCombo.addItem(City.Montevideo);
-                }
-            }
-
+        backButton.addActionListener(actionEvent -> {
+            dispose();
+            MainWindow mainwindow = new MainWindow();
         });
 
         okButton.addActionListener(e -> {
@@ -106,6 +81,7 @@ public class NewFlight extends JFrame{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         });
+
         companionField.setText("0"); //necesario para que funcione el calculo del costo del vuelo
 
         airplanesCombo.addActionListener(new ActionListener() {
@@ -126,11 +102,6 @@ public class NewFlight extends JFrame{
 
                 //Flight auxi = new Flight(aux, date, origen, destino);
                 int compa = Integer.parseInt(companionField.getText());  //problema si es null
-
-
-
-
-
             }
         });
 
@@ -147,6 +118,14 @@ public class NewFlight extends JFrame{
                 }
             }
         });
+
+    }
+
+    public void fillComboCities(JComboBox fill,City value){
+        for (City c:City.values()){
+            if (!c.equals(value))
+                fill.addItem(c.name());
+        }
     }
 
     public void fillAirplanes(){
@@ -154,5 +133,8 @@ public class NewFlight extends JFrame{
             airplanesCombo.addItem(a.toString());
         }
     }
+
+
+
 
 }
