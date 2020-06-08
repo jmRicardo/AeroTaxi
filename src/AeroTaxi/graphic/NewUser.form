@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="294" height="270"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-13882324"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="81df7" class="javax.swing.JTextField" binding="lastField">

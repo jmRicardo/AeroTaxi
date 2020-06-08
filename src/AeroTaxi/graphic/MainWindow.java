@@ -14,6 +14,8 @@ public class MainWindow extends JFrame {
     public MainWindow(){
 
 
+
+
         image.setIcon(new ImageIcon(AeroTaxi.logoPath));
 
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
