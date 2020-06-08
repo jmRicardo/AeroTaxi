@@ -7,8 +7,6 @@ public class AdminMain {
 
     public static void main(String[] args) {
 
-        System.out.println(AeroTaxi.flights);
-
         try {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e1) {
