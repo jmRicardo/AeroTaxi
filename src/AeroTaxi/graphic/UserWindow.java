@@ -3,7 +3,6 @@ package AeroTaxi.graphic;
 import AeroTaxi.core.AeroTaxi;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +15,7 @@ public class UserWindow extends JFrame {
 
     public UserWindow(){
 
-        root.setBackground(SwingUtil.back);
+        root.setBackground(SwingUtil.backgroundColor);
         newUserButtton.setBackground(SwingUtil.buttonColor);
         newUserButtton.setForeground(SwingUtil.textColor);
         existingUserButton.setBackground(SwingUtil.buttonColor);

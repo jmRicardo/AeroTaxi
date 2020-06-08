@@ -29,6 +29,11 @@ public class CancelFlight extends JFrame {
 
     public CancelFlight() {
 
+        root.setBackground(SwingUtil.backgroundColor);
+        root.setForeground(SwingUtil.backgroundColor);
+
+
+
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);

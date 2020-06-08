@@ -18,8 +18,27 @@ public class NewUser extends JFrame{
     private JButton backButton;
     private JLabel isValidLabel;
     private JLabel exampleLabel;
+    private JLabel nameLabel;
+    private JLabel lastLabel;
+    private JLabel dniLabel;
+    private JLabel ageLabel;
 
     public NewUser(){
+
+        exampleLabel.setForeground(SwingUtil.textColor);
+        okButton.setForeground(SwingUtil.textColor);
+        backButton.setForeground(SwingUtil.textColor);
+        nameLabel.setForeground(SwingUtil.textColor);
+        lastLabel.setForeground(SwingUtil.textColor);
+        dniLabel.setForeground(SwingUtil.textColor);
+        ageLabel.setForeground(SwingUtil.textColor);
+        nameField.setForeground(SwingUtil.textColor);
+        lastField.setForeground(SwingUtil.textColor);
+        dniField.setForeground(SwingUtil.textColor);
+        ageField.setForeground(SwingUtil.textColor);
+
+        okButton.setBackground(SwingUtil.buttonColor);
+        backButton.setBackground(SwingUtil.buttonColor);
 
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
