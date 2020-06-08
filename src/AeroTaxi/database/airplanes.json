@@ -1,4 +1,4 @@
-[ [ "AeroTaxi.airplanes.Gold", {
+[ [ "AeroTaxi.core.airplanes.Gold", {
   "fuel" : 900,
   "cost" : 350.0,
   "capacity" : 900,
@@ -7,14 +7,14 @@
   "rate" : 6000,
   "catering" : "MILANGA CON PURE PAPURRI!",
   "wifi" : true
-} ], [ "AeroTaxi.airplanes.Bronze", {
+} ], [ "AeroTaxi.core.airplanes.Bronze", {
   "fuel" : 500,
   "cost" : 100.0,
   "capacity" : 100,
   "maxSpeed" : 450.0,
   "engine" : "propeller",
   "rate" : 3000
-} ], [ "AeroTaxi.airplanes.Silver", {
+} ], [ "AeroTaxi.core.airplanes.Silver", {
   "fuel" : 700,
   "cost" : 200.0,
   "capacity" : 350,

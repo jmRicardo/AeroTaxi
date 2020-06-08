@@ -1,14 +1,14 @@
-[ [ "AeroTaxi.User", {
+[ [ "AeroTaxi.core.User", {
   "name" : "Juan",
   "lastName" : "Ricardo",
   "age" : 31,
   "dni" : "34.313.637"
-} ], [ "AeroTaxi.User", {
+} ], [ "AeroTaxi.core.User", {
   "name" : "Sandy",
   "lastName" : "Lopez",
   "age" : 25,
   "dni" : "38.313.637"
-} ], [ "AeroTaxi.User", {
+} ], [ "AeroTaxi.core.User", {
   "name" : "Elcho",
   "lastName" : "Rizo",
   "age" : 10,

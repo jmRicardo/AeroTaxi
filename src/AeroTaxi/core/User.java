@@ -1,7 +1,5 @@
 package AeroTaxi.core;
 
-import AeroTaxi.AeroTaxi;
-
 import java.util.Objects;
 
 

@@ -1,10 +1,10 @@
-[ [ "AeroTaxi.Flight", {
+[ [ "AeroTaxi.core.Flight", {
   "users" : [ "java.util.HashMap", {
     "38.313.637" : 3,
     "34.313.637" : 5
   } ],
   "plane" : {
-    "type" : "AeroTaxi.airplanes.Gold",
+    "type" : "AeroTaxi.core.airplanes.Gold",
     "fuel" : 900,
     "cost" : 350.0,
     "capacity" : 900,
@@ -18,13 +18,13 @@
   "destiny" : "Santiago",
   "done" : false,
   "origin" : "Cordoba"
-} ], [ "AeroTaxi.Flight", {
+} ], [ "AeroTaxi.core.Flight", {
   "users" : [ "java.util.HashMap", {
     "38.313.637" : 2,
     "34.313.637" : 10
   } ],
   "plane" : {
-    "type" : "AeroTaxi.airplanes.Gold",
+    "type" : "AeroTaxi.core.airplanes.Gold",
     "fuel" : 900,
     "cost" : 350.0,
     "capacity" : 900,
