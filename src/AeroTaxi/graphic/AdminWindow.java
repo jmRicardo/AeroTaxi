@@ -51,6 +51,7 @@ public class AdminWindow extends JFrame {
                 super.mouseClicked(e);
                 int x = usersList.getSelectedIndex();
                 planeField.setText(AeroTaxi.moreUsedAirplane(AeroTaxi.users.get(x)));
+                totalField.setText( Double.toString(AeroTaxi.getTotalSpendByUser(AeroTaxi.users.get(x))));
 
             }
         });

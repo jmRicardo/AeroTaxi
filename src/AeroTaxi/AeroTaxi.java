@@ -105,7 +105,7 @@ public class AeroTaxi {
         return  AeroTaxi.flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
     public static List<Flight> searchFlyByUser(User user){
-        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().containsKey(user)).collect(Collectors.toList());
+        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().containsKey(user.getDNI())).collect(Collectors.toList());
     }
 
     /// a mejorar
@@ -124,6 +124,19 @@ public class AeroTaxi {
             }
         }
         return map.entrySet().stream().max((entry1, entry2) -> entry1.getValue() - entry2.getValue()).get().getKey().toString();
+    }
+
+    public static double getTotalSpendByUser(User user){
+        String userDni = user.getDNI();
+        List<Flight> list = searchFlyByUser(user);
+        if (list.isEmpty())
+            return 0;
+        double total = 0;
+        for (Flight flight : list) {
+            Map<String,Integer> map = flight.getUsers();
+            total+=map.get(userDni);
+        }
+        return total;
     }
 
     public static void sortFlyByDate(){
