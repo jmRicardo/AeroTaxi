@@ -1,6 +1,4 @@
-package AeroTaxi.airplanes;
-
-import AeroTaxi.AeroTaxi;
+package AeroTaxi.core.airplanes;
 
 public class Bronze extends Airplane{
     public Bronze(int fuel, double cost, int capacity, double maxSpeed, Propulsion engine) {

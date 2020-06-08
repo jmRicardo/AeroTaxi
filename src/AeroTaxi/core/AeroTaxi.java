@@ -1,12 +1,9 @@
-package AeroTaxi;
+package AeroTaxi.core;
 
-import AeroTaxi.airplanes.*;
+import AeroTaxi.core.airplanes.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import AeroTaxi.graphic.MainWindow;
-
-import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -142,22 +139,4 @@ public class AeroTaxi {
     public static void sortFlyByDate(){
         // TODO
     }
-
-
-
-    ///
-    public static void main(String[] args) {
-
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-
-        SwingUtilities.invokeLater(() -> new MainWindow());
-
-    }
-
-
-
 }

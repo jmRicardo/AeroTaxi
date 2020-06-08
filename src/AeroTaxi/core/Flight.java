@@ -1,6 +1,7 @@
-package AeroTaxi;
+package AeroTaxi.core;
 
-import AeroTaxi.airplanes.Airplane;
+import AeroTaxi.AeroTaxi;
+import AeroTaxi.core.airplanes.Airplane;
 
 import java.time.LocalDate;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package AeroTaxi.airplanes;
+package AeroTaxi.core.airplanes;
 
 public class Gold extends Airplane implements Catering{
     private String catering;

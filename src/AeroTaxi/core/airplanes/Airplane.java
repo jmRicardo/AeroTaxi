@@ -1,4 +1,4 @@
-package AeroTaxi.airplanes;
+package AeroTaxi.core.airplanes;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -8,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Bronze.class, name = "AeroTaxi.airplanes.Bronze"),
-        @JsonSubTypes.Type(value = Silver.class, name = "AeroTaxi.airplanes.Silver"),
-        @JsonSubTypes.Type(value = Gold.class, name = "AeroTaxi.airplanes.Gold")
+        @JsonSubTypes.Type(value = Bronze.class, name = "AeroTaxi.core.airplanes.Bronze"),
+        @JsonSubTypes.Type(value = Silver.class, name = "AeroTaxi.core.airplanes.Silver"),
+        @JsonSubTypes.Type(value = Gold.class, name = "AeroTaxi.core.airplanes.Gold")
 })
 public abstract class Airplane {
 

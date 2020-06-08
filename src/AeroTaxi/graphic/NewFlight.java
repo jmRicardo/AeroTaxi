@@ -1,10 +1,10 @@
 package AeroTaxi.graphic;
 
-import AeroTaxi.AeroTaxi;
-import AeroTaxi.City;
-import AeroTaxi.Flight;
-import AeroTaxi.airplanes.Airplane;
-import AeroTaxi.User;
+import AeroTaxi.core.AeroTaxi;
+import AeroTaxi.core.City;
+import AeroTaxi.core.Flight;
+import AeroTaxi.core.airplanes.Airplane;
+import AeroTaxi.core.User;
 
 import javax.swing.*;
 import java.awt.*;

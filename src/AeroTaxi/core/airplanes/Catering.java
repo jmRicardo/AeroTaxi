@@ -1,4 +1,4 @@
-package AeroTaxi.airplanes;
+package AeroTaxi.core.airplanes;
 
 public interface Catering {
     String catering();

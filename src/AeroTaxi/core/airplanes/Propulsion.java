@@ -1,6 +1,4 @@
-package AeroTaxi.airplanes;
-
-import AeroTaxi.AeroTaxi;
+package AeroTaxi.core.airplanes;
 
 public enum Propulsion {
     reaction,propeller,piston

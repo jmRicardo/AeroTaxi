@@ -1,8 +1,7 @@
 package AeroTaxi.graphic;
 
-import AeroTaxi.AeroTaxi;
-import AeroTaxi.User;
-import AeroTaxi.graphic.NewFlight;
+import AeroTaxi.core.AeroTaxi;
+import AeroTaxi.core.User;
 
 import javax.swing.*;
 import java.awt.*;

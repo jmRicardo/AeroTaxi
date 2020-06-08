@@ -1,5 +1,9 @@
 package AeroTaxi;
 
+import AeroTaxi.core.AeroTaxi;
+import AeroTaxi.core.City;
+import AeroTaxi.core.Flight;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;

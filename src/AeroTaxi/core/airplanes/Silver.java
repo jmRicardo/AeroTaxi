@@ -1,7 +1,4 @@
-package AeroTaxi.airplanes;
-
-import AeroTaxi.AeroTaxi;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
+package AeroTaxi.core.airplanes;
 
 public class Silver extends Airplane implements Catering{
     private String catering;

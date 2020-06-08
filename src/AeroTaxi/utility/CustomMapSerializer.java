@@ -1,6 +1,6 @@
 package AeroTaxi.utility;
 
-import AeroTaxi.User;
+import AeroTaxi.core.User;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;

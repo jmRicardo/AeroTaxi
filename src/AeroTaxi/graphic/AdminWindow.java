@@ -1,13 +1,11 @@
 package AeroTaxi.graphic;
 
-import AeroTaxi.AeroTaxi;
-import AeroTaxi.User;
-import AeroTaxi.Flight;
+import AeroTaxi.core.AeroTaxi;
+import AeroTaxi.core.Flight;
 
 import javax.swing.*;
 import java.awt.event.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 

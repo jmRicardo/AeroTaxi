@@ -1,6 +1,6 @@
 package AeroTaxi.graphic;
 
-import AeroTaxi.AeroTaxi;
+import AeroTaxi.core.AeroTaxi;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
