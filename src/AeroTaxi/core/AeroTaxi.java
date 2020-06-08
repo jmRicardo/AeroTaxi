@@ -133,8 +133,7 @@ public class AeroTaxi {
             return 0;
         double total = 0;
         for (Flight flight : list) {
-            Map<String,Integer> map = flight.getUsers();
-            total+=map.get(userDni);
+            total+=flight.costPerUser(user);
         }
         return total;
     }

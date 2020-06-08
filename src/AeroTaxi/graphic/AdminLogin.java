@@ -15,6 +15,8 @@ public class AdminLogin extends JFrame {
     private JLabel passLabel;
     private JLabel userLabel;
     private JButton enterButton;
+    private JLabel image;
+    private JPanel logoPanel;
 
     private char[] password;
     private String adminUser;
@@ -23,6 +25,7 @@ public class AdminLogin extends JFrame {
 
     public AdminLogin() {
 
+        image.setIcon(new ImageIcon(AeroTaxi.logoPath));
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);

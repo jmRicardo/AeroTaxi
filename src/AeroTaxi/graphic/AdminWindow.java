@@ -5,9 +5,11 @@ import AeroTaxi.core.Flight;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Locale;
 
 public class AdminWindow extends JFrame {
 
@@ -49,7 +51,10 @@ public class AdminWindow extends JFrame {
                 super.mouseClicked(e);
                 int x = usersList.getSelectedIndex();
                 planeField.setText(AeroTaxi.moreUsedAirplane(AeroTaxi.users.get(x)));
-                totalField.setText( Double.toString(AeroTaxi.getTotalSpendByUser(AeroTaxi.users.get(x))));
+                double spend = AeroTaxi.getTotalSpendByUser(AeroTaxi.users.get(x));
+                String spendString = NumberFormat.getCurrencyInstance(new Locale("en", "US"))
+                        .format(spend);
+                totalField.setText(spendString);
 
             }
         });

@@ -18,6 +18,7 @@ public class MainWindow extends JFrame {
         reserveButton.setForeground(SwingUtil.textColor);
         cancelButton.setForeground(SwingUtil.textColor);
         exitButton.setForeground(SwingUtil.textColor);
+
         image.setIcon(new ImageIcon(AeroTaxi.logoPath));
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
