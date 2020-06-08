@@ -14,6 +14,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class NewFlight extends JFrame{
     private JLabel dateLabel;
@@ -46,10 +47,9 @@ public class NewFlight extends JFrame{
         airplanesCombo.setEnabled(true);
         destinyCombo.setEnabled(false);
 
-        origenCombo.addItem(City.Buenos_Aires);
-        origenCombo.addItem(City.Cordoba);
-        origenCombo.addItem(City.Santiago);
-        origenCombo.addItem(City.Montevideo);
+        for (City c:City.values()){
+            origenCombo.addItem(c.name());
+        }
 
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -104,14 +104,8 @@ public class NewFlight extends JFrame{
             String origin = origenCombo.getSelectedItem().toString();
             String arrival = destinyCombo.getSelectedItem().toString();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate localDate = LocalDate.parse(dateField.getText());
 
         });
-
-        for (Airplane a : AeroTaxi.airplanes){  //recorre la lista de aviones para mostrar en el Box
-            airplanesCombo.addItem(a.toString());
-        }
-
         companionField.setText("0"); //necesario para que funcione el calculo del costo del vuelo
 
         airplanesCombo.addActionListener(new ActionListener() {
@@ -133,9 +127,6 @@ public class NewFlight extends JFrame{
                 //Flight auxi = new Flight(aux, date, origen, destino);
                 int compa = Integer.parseInt(companionField.getText());  //problema si es null
 
-                double cost = calculateDistance(origen, destino) * 150 + ((compa + 1) * 3500) + aux.getRate();  //el costo lo invente (el 150)
-
-                totalCost.setText(String.valueOf(cost));
 
 
 
@@ -147,39 +138,21 @@ public class NewFlight extends JFrame{
             @Override
             public void keyReleased(KeyEvent e) {
                 super.keyReleased(e);
-                 searchButton.setEnabled(AeroTaxi.checkDate(dateField.getText()));
+                String date = dateField.getText();
+                boolean enabled =  AeroTaxi.checkDate(date);
+                searchButton.setEnabled(enabled);
+                if (enabled){
+                    LocalDate localDate = LocalDate.parse(date,AeroTaxi.dateFormat);
+                    List<Flight> list = AeroTaxi.searchFlyByDate(localDate);
+                }
             }
         });
-        dateField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                super.keyReleased(e);
+    }
 
-            }
-        });
-        dateField.addKeyListener(new KeyAdapter() {
-        });
+    public void fillAirplanes(){
+        for (Airplane a : AeroTaxi.airplanes){  //recorre la lista de aviones para mostrar en el Box
+            airplanesCombo.addItem(a.toString());
+        }
     }
-    public int calculateDistance (City departure,City destiny){
-        int aux = 0;
-        if ((departure == City.Buenos_Aires) && (destiny == City.Cordoba) || (departure == City.Cordoba) && (destiny == City.Buenos_Aires)){
-            aux = 695;
-        }
-        if ((departure == City.Buenos_Aires) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Buenos_Aires)){
-            aux = 1400;
-        }
-        if ((departure == City.Buenos_Aires) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Buenos_Aires)){
-            aux = 950;
-        }
-        if ((departure == City.Cordoba) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Cordoba)){
-            aux = 1190;
-        }
-        if ((departure == City.Cordoba) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Cordoba)){
-            aux = 1050;
-        }
-        if ((departure == City.Montevideo) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Montevideo)){
-            aux = 2100;
-        }
-        return aux;
-    }
+
 }

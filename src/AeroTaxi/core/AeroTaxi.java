@@ -28,7 +28,7 @@ public class AeroTaxi {
     public static final String airplanesPath = "src/AeroTaxi/database/airplanes.json";
     public static final String usersPath = "src/AeroTaxi/database/users.json";
     public static final String flightsPath = "src/AeroTaxi/database/flights.json";
-    public static final String logoPath = "src/AeroTaxi/images/logo2.png";
+    public static final String logoPath = "src/AeroTaxi/images/logo.png";
     public static final String iconPath = "src/AeroTaxi/images/aeroplano.png";
 
 
@@ -139,7 +139,34 @@ public class AeroTaxi {
         return total;
     }
 
-    public static void sortFlyByDate(){
-        // TODO
+    public static boolean checkAirplaneCapacityPerFly(Flight flight){
+        int capacity = flight.getPlane().getCapacity();
+        int passengers = flight.getUsers().values().stream().mapToInt(Integer::valueOf).sum();
+        return passengers < capacity;
     }
+
+    public static int calculateDistance (City departure,City destiny){
+        int aux = 0;
+        if ((departure == City.Buenos_Aires) && (destiny == City.Cordoba) || (departure == City.Cordoba) && (destiny == City.Buenos_Aires)){
+            aux = 695;
+        }
+        if ((departure == City.Buenos_Aires) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Buenos_Aires)){
+            aux = 1400;
+        }
+        if ((departure == City.Buenos_Aires) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Buenos_Aires)){
+            aux = 950;
+        }
+        if ((departure == City.Cordoba) && (destiny == City.Montevideo) || (departure == City.Montevideo) && (destiny == City.Cordoba)){
+            aux = 1190;
+        }
+        if ((departure == City.Cordoba) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Cordoba)){
+            aux = 1050;
+        }
+        if ((departure == City.Montevideo) && (destiny == City.Santiago) || (departure == City.Santiago) && (destiny == City.Montevideo)){
+            aux = 2100;
+        }
+        return aux;
+    }
+
+
 }

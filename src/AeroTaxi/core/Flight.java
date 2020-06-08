@@ -92,6 +92,14 @@ public class Flight {
         isDone = done;
     }
 
+    public Double costPerUser(User user){
+        return (double) (AeroTaxi.calculateDistance(departure, destiny) * 150) + (users.get(user.getDNI()) * 3500) + plane.getRate();
+    }
+    /*
+    (Cantidad de kms * Costo del km) + (cantidad de pasajeros * 3500) + (Tarifa del tipo
+    de avión)*/
+
+
     @Override
     public String toString() {
         return "Flight{" +
