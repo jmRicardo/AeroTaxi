@@ -1,9 +1,9 @@
 package AeroTaxi;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable {
+
+public class User{
 
     private String name;
     private String lastName;
@@ -16,6 +16,8 @@ public class User implements Serializable {
         this.DNI = DNI;
         this.age = age;
     }
+
+    public User(){}
 
     public String getName() {
         return name;
@@ -49,9 +51,6 @@ public class User implements Serializable {
         this.age = age;
     }
 
-    public User() {
-
-    }
 
     @Override
     public String toString() {

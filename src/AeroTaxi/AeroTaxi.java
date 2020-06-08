@@ -105,7 +105,7 @@ public class AeroTaxi {
         return  AeroTaxi.flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
     public static List<Flight> searchFlyByUser(User user){
-        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().contains(user)).collect(Collectors.toList());
+        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().containsKey(user)).collect(Collectors.toList());
     }
 
     /// a mejorar

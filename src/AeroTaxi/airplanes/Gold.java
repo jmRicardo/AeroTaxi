@@ -1,7 +1,5 @@
 package AeroTaxi.airplanes;
 
-import AeroTaxi.AeroTaxi;
-
 public class Gold extends Airplane implements Catering{
     private String catering;
     private boolean wifi;

@@ -3,9 +3,8 @@ package AeroTaxi;
 import AeroTaxi.airplanes.Airplane;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,9 +14,9 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 public class Flight {
 
-    private List<User> users;
-    private Airplane plane;
+    private Map<String,Integer> users;
 
+    private Airplane plane;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     @JsonDeserialize(using = LocalDateDeserializer.class)
@@ -30,7 +29,7 @@ public class Flight {
     private boolean isDone;
 
     public Flight(Airplane plane, LocalDate date, City departure, City destiny) {
-        this.users = new ArrayList<User>();
+        this.users = new HashMap<>();
         this.plane = plane;
         this.date = date;
         this.departure = departure;
@@ -41,16 +40,15 @@ public class Flight {
     public Flight() {
     }
 
-    public void addUser(User user)
-    {
-        users.add(user);
+    public void addUsers(String user,Integer total) {
+        users.put(user,total);
     }
 
-    public List<User> getUsers() {
+    public Map<String, Integer> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Map<String, Integer> users) {
         this.users = users;
     }
 
