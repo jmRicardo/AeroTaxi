@@ -22,6 +22,21 @@ public class ExistUser extends JFrame {
 
     public ExistUser(){
 
+        root.setBackground(SwingUtil.backgroundColor);
+        searchButton.setBackground(SwingUtil.buttonColor);
+        backButton.setBackground(SwingUtil.buttonColor);
+        dniText.setBackground(SwingUtil.buttonColor);
+
+        dniText.setForeground(SwingUtil.textColor);
+        root.setForeground(SwingUtil.textColor);
+        dniLabel.setForeground(SwingUtil.textColor);
+        searchButton.setForeground(SwingUtil.textColor);
+        isValidLabel.setForeground(SwingUtil.textColor);
+        exampleLabel.setForeground(SwingUtil.textColor);
+        backButton.setForeground(SwingUtil.textColor);
+
+
+
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);

@@ -19,6 +19,8 @@
         <properties>
           <background color="-14407895"/>
           <font name="SansSerif" size="14"/>
+          <selectionColor color="-16777216"/>
+          <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
       <component id="35c23" class="javax.swing.JTextField" binding="dniField">
@@ -30,6 +32,8 @@
         <properties>
           <background color="-14407895"/>
           <font name="SansSerif" size="14"/>
+          <selectionColor color="-16777216"/>
+          <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
       <component id="c699e" class="javax.swing.JLabel" binding="nameLabel">
@@ -92,6 +96,8 @@
         <properties>
           <background color="-14407895"/>
           <font name="SansSerif" size="14"/>
+          <selectionColor color="-16777216"/>
+          <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
       <component id="3e969" class="javax.swing.JTextField" binding="nameField">
@@ -103,6 +109,8 @@
         <properties>
           <background color="-14407895"/>
           <font name="SansSerif" size="14"/>
+          <selectionColor color="-16777216"/>
+          <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
       <component id="c1bb6" class="javax.swing.JButton" binding="backButton">
@@ -112,7 +120,7 @@
           </grid>
         </constraints>
         <properties>
-          <font name="SansSerif" size="16"/>
+          <font name="SansSerif" size="14"/>
           <text value="Volver"/>
         </properties>
       </component>
@@ -124,7 +132,7 @@
         </constraints>
         <properties>
           <enabled value="false"/>
-          <font name="SansSerif" size="16"/>
+          <font name="SansSerif" size="14"/>
           <text value="Aceptar"/>
         </properties>
       </component>
@@ -143,7 +151,7 @@
         </constraints>
         <properties>
           <enabled value="true"/>
-          <font style="2"/>
+          <font name="SansSerif" size="14"/>
           <foreground color="-4517888"/>
           <text value="     "/>
         </properties>

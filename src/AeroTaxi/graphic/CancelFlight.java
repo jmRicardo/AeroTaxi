@@ -30,7 +30,21 @@ public class CancelFlight extends JFrame {
     public CancelFlight() {
 
         root.setBackground(SwingUtil.backgroundColor);
-        root.setForeground(SwingUtil.backgroundColor);
+        backButton.setBackground(SwingUtil.buttonColor);
+        cancelButton.setBackground(SwingUtil.buttonColor);
+        searchButton.setBackground(SwingUtil.buttonColor);
+        dniText.setBackground(SwingUtil.buttonColor);
+        flightList.setBackground(SwingUtil.listBackColor);
+        backButton.setForeground(SwingUtil.textColor);
+        cancelButton.setForeground(SwingUtil.textColor);
+        dniText.setForeground(SwingUtil.textColor);
+        dniLabel.setForeground(SwingUtil.textColor);
+        exampleLabel.setForeground(SwingUtil.textColor);
+        searchButton.setForeground(SwingUtil.textColor);
+        isValidLabel.setForeground(SwingUtil.textColor);
+        flightList.setForeground(SwingUtil.textColor);
+
+
 
 
 

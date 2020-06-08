@@ -40,6 +40,7 @@ public class NewUser extends JFrame{
         okButton.setBackground(SwingUtil.buttonColor);
         backButton.setBackground(SwingUtil.buttonColor);
 
+
         ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
         this.setIconImage(img.getImage());
         add(root);
