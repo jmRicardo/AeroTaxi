@@ -48,11 +48,11 @@ public class AeroTaxi {
 
     }
     public static List<Flight> searchFlyByDate(LocalDate ld){
-        return  AeroTaxi.flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
+        return  flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
 
     public static List<Flight> searchFlyByUser(User user){
-        return  AeroTaxi.flights.stream().filter(x -> x.getUsers().containsKey(user.getDNI())).collect(Collectors.toList());
+        return  flights.stream().filter(x -> x.getUsers().containsKey(user.getDNI())).collect(Collectors.toList());
     }
 
     /// a mejorar
@@ -63,12 +63,10 @@ public class AeroTaxi {
         HashMap<Airplane,Integer> map = new HashMap<>();
         for (Flight l : list) {
             Airplane aux = l.getPlane();
-            if (map.containsKey(aux)) {
+            if (map.containsKey(aux))
                 map.put(aux,map.get(aux) + 1);
-            }
-            else {
+            else
                 map.put(aux, 1);
-            }
         }
         return map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get().getKey().toString();
     }

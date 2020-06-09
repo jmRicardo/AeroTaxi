@@ -11,8 +11,10 @@ import AeroTaxi.utility.Path;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -129,10 +131,15 @@ public class NewFlight extends JFrame{
                         showMessageDialog(null, "Fecha invalida / ya paso!");
                         dateField.setText("");
                     }
+                    System.out.println(list.size());
+                    for (Flight f : list)
+                    {
+                        System.out.println(AeroTaxi.checkAirplaneCapacityPerFly(f));
+                    }
+
                 }
             }
         });
-
     }
 
     public void fillComboCities(JComboBox fill,City value){

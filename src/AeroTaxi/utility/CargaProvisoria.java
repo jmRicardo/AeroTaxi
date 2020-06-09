@@ -13,8 +13,8 @@ public class CargaProvisoria {
     public static void main(String[] args) {
 
         Map<String,Integer> map = new HashMap<>();
-        map.put(AeroTaxi.users.get(0).getDNI(),10);
-        map.put(AeroTaxi.users.get(1).getDNI(),2);
+        map.put(AeroTaxi.users.get(0).getDNI(),880);
+        map.put(AeroTaxi.users.get(1).getDNI(),20);
 
         Flight a = new Flight();
         a.setDate(LocalDate.parse("12/10/2020",AeroTaxi.dateFormat));

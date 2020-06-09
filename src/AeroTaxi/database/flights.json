@@ -1,7 +1,7 @@
 [ [ "AeroTaxi.core.Flight", {
   "users" : [ "java.util.HashMap", {
-    "38.313.637" : 2,
-    "34.313.637" : 10
+    "38.313.637" : 20,
+    "34.313.637" : 800
   } ],
   "plane" : {
     "type" : "AeroTaxi.core.airplanes.Gold",
