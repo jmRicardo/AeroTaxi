@@ -2,6 +2,8 @@ package AeroTaxi.graphic;
 
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.core.User;
+import AeroTaxi.utility.JSONUtily;
+import AeroTaxi.utility.Path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,7 +43,7 @@ public class NewUser extends JFrame{
         backButton.setBackground(SwingUtil.buttonColor);
 
 
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
@@ -64,7 +66,7 @@ public class NewUser extends JFrame{
             User user = new User(name,lastName,dni,age);
             AeroTaxi.users.add(user);
 //          se graba en el archivo
-            AeroTaxi.saveFile(AeroTaxi.usersPath, AeroTaxi.users);
+            JSONUtily.saveFile(Path.usersPath, AeroTaxi.users);
             dispose();
             new NewFlight(user);
 
@@ -84,17 +86,6 @@ public class NewUser extends JFrame{
         nameField.addKeyListener(checker);
         ageField.addKeyListener(checker);
         lastField.addKeyListener(checker);
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private void checkStatus(){

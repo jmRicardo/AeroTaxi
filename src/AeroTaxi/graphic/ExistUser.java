@@ -2,6 +2,7 @@ package AeroTaxi.graphic;
 
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.core.User;
+import AeroTaxi.utility.Path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +38,7 @@ public class ExistUser extends JFrame {
 
 
 
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);

@@ -1,6 +1,7 @@
 package AeroTaxi.graphic;
 
 import AeroTaxi.core.AeroTaxi;
+import AeroTaxi.utility.Path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +20,8 @@ public class MainWindow extends JFrame {
         cancelButton.setForeground(SwingUtil.textColor);
         exitButton.setForeground(SwingUtil.textColor);
 
-        image.setIcon(new ImageIcon(AeroTaxi.logoPath));
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        image.setIcon(new ImageIcon(Path.logoPath));
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
          add(root);
          setResizable(false);

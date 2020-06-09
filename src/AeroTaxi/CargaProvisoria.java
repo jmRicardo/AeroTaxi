@@ -3,6 +3,8 @@ package AeroTaxi;
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.core.City;
 import AeroTaxi.core.Flight;
+import AeroTaxi.utility.JSONUtily;
+import AeroTaxi.utility.Path;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -25,7 +27,7 @@ public class CargaProvisoria {
 
         AeroTaxi.flights.add(a);
 
-        AeroTaxi.saveFile(AeroTaxi.flightsPath,AeroTaxi.flights);
+        JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
 
     }
 

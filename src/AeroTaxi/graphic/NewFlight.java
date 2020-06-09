@@ -5,6 +5,8 @@ import AeroTaxi.core.City;
 import AeroTaxi.core.Flight;
 import AeroTaxi.core.airplanes.Airplane;
 import AeroTaxi.core.User;
+import AeroTaxi.utility.JSONUtily;
+import AeroTaxi.utility.Path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +38,7 @@ public class NewFlight extends JFrame{
     //asd
     public NewFlight(User user) throws HeadlessException {
 
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
@@ -72,7 +74,7 @@ public class NewFlight extends JFrame{
 
                 Flight flight = new Flight();
                 AeroTaxi.flights.add(flight);
-                AeroTaxi.saveFile(AeroTaxi.flightsPath,AeroTaxi.flights);
+                JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
         });
         searchButton.addActionListener(e -> {
 

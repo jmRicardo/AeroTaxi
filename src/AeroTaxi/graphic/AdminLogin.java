@@ -1,7 +1,6 @@
 package AeroTaxi.graphic;
 
-import AeroTaxi.core.AeroTaxi;
-
+import AeroTaxi.utility.Path;
 import javax.swing.*;
 import java.awt.event.ComponentAdapter;
 import java.util.Arrays;
@@ -25,8 +24,8 @@ public class AdminLogin extends JFrame {
 
     public AdminLogin() {
 
-        image.setIcon(new ImageIcon(AeroTaxi.logoPath));
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        image.setIcon(new ImageIcon(Path.logoPath));
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);

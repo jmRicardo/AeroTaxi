@@ -3,6 +3,8 @@ package AeroTaxi.graphic;
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.core.User;
 import AeroTaxi.core.Flight;
+import AeroTaxi.utility.JSONUtily;
+import AeroTaxi.utility.Path;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,7 +50,7 @@ public class CancelFlight extends JFrame {
 
 
 
-        ImageIcon img = new ImageIcon(AeroTaxi.iconPath);
+        ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
         setResizable(false);
@@ -96,7 +98,7 @@ public class CancelFlight extends JFrame {
         cancelButton.addActionListener(e -> {
             int x = flightList.getSelectedIndex();
             userFlights.get(x).getUsers().remove(find);
-            AeroTaxi.saveFile(AeroTaxi.flightsPath,AeroTaxi.flights);
+            JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
 
         });
     }

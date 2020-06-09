@@ -5,6 +5,7 @@ import AeroTaxi.core.airplanes.Airplane;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -93,7 +94,7 @@ public class Flight {
     }
 
     public Double costPerUser(User user){
-        return (double) (AeroTaxi.calculateDistance(departure, destiny) * 150) + (users.get(user.getDNI()) * 3500) + plane.getRate();
+        return (double) (AeroTaxi.calculateDistance(departure, destiny) * (new Random().nextInt(150)+150)) + (users.get(user.getDNI()) * 3500) + plane.getRate();
     }
     /*
     (Cantidad de kms * Costo del km) + (cantidad de pasajeros * 3500) + (Tarifa del tipo
