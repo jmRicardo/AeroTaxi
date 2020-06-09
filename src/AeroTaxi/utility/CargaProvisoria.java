@@ -1,10 +1,8 @@
-package AeroTaxi;
+package AeroTaxi.utility;
 
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.core.City;
 import AeroTaxi.core.Flight;
-import AeroTaxi.utility.JSONUtily;
-import AeroTaxi.utility.Path;
 
 import java.time.LocalDate;
 import java.util.HashMap;

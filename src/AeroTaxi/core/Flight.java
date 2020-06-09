@@ -27,6 +27,8 @@ public class Flight {
     private City departure;
     private City destiny;
 
+    private int costPerKm;
+
     private boolean isDone;
 
     public Flight(Airplane plane, LocalDate date, City departure, City destiny) {
@@ -36,6 +38,7 @@ public class Flight {
         this.departure = departure;
         this.destiny = destiny;
         this.isDone = false;
+        this.costPerKm = new Random().nextInt(150)+150;
     }
 
     public Flight() {
@@ -94,7 +97,7 @@ public class Flight {
     }
 
     public Double costPerUser(User user){
-        return (double) (AeroTaxi.calculateDistance(departure, destiny) * (new Random().nextInt(150)+150)) + (users.get(user.getDNI()) * 3500) + plane.getRate();
+        return (double) ((AeroTaxi.calculateDistance(departure, destiny)*costPerKm) + (users.get(user.getDNI())*3500) + plane.getRate());
     }
     /*
     (Cantidad de kms * Costo del km) + (cantidad de pasajeros * 3500) + (Tarifa del tipo

@@ -1,25 +1,5 @@
 [ [ "AeroTaxi.core.Flight", {
   "users" : [ "java.util.HashMap", {
-    "38.313.637" : 3,
-    "34.313.637" : 5
-  } ],
-  "plane" : {
-    "type" : "AeroTaxi.core.airplanes.Gold",
-    "fuel" : 900,
-    "cost" : 350.0,
-    "capacity" : 900,
-    "maxSpeed" : 1000.0,
-    "engine" : "reaction",
-    "rate" : 6000,
-    "catering" : "MILANGA CON PURE PAPURRI!",
-    "wifi" : true
-  },
-  "date" : "12/10/2020",
-  "destiny" : "Santiago",
-  "done" : false,
-  "origin" : "Cordoba"
-} ], [ "AeroTaxi.core.Flight", {
-  "users" : [ "java.util.HashMap", {
     "38.313.637" : 2,
     "34.313.637" : 10
   } ],
