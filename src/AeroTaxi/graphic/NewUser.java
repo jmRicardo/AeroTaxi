@@ -24,6 +24,8 @@ public class NewUser extends JFrame{
     private JLabel lastLabel;
     private JLabel dniLabel;
     private JLabel ageLabel;
+    private JPanel logoPanel;
+    private JLabel image;
 
     public NewUser(){
 
@@ -41,6 +43,8 @@ public class NewUser extends JFrame{
 
         okButton.setBackground(SwingUtil.buttonColor);
         backButton.setBackground(SwingUtil.buttonColor);
+
+        image.setIcon(new ImageIcon(Path.logoPath));
 
 
         ImageIcon img = new ImageIcon(Path.iconPath);

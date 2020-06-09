@@ -15,7 +15,7 @@ public class AeroTaxi {
     /// Patrones
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
-    private static final Pattern datePattern = Pattern.compile("\\d{2}/\\d{2}/202\\d");
+    private static final Pattern datePattern = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
 
     /// Formato de Dia
     public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");

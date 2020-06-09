@@ -12,6 +12,7 @@ public class MainWindow extends JFrame {
     private JButton cancelButton;
     private JButton exitButton;
     private JLabel image;
+    private JPanel logoPanel;
 
     public MainWindow(){
 
