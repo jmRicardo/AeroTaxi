@@ -20,6 +20,8 @@ public class ExistUser extends JFrame {
     private JLabel isValidLabel;
     private JLabel exampleLabel;
     private JButton backButton;
+    private JPanel logoPanel;
+    private JLabel image;
 
     public ExistUser(){
 
@@ -36,7 +38,7 @@ public class ExistUser extends JFrame {
         exampleLabel.setForeground(SwingUtil.textColor);
         backButton.setForeground(SwingUtil.textColor);
 
-
+        image.setIcon(new ImageIcon(Path.logoPath));
 
         ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());

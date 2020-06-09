@@ -66,6 +66,7 @@
         </constraints>
         <properties>
           <background color="-13882324"/>
+          <enabled value="false"/>
           <font name="SansSerif" size="14"/>
           <foreground color="-4622846"/>
         </properties>
@@ -78,6 +79,7 @@
         </constraints>
         <properties>
           <background color="-13882324"/>
+          <enabled value="false"/>
           <font name="SansSerif" size="14"/>
           <foreground color="-4622846"/>
         </properties>
@@ -136,6 +138,7 @@
         </constraints>
         <properties>
           <background color="-13882324"/>
+          <enabled value="false"/>
           <font name="SansSerif" size="14"/>
           <foreground color="-4622846"/>
         </properties>
@@ -218,6 +221,7 @@
         </constraints>
         <properties>
           <background color="-13882324"/>
+          <enabled value="false"/>
           <font name="SansSerif" size="14"/>
           <foreground color="-4622846"/>
           <text value=""/>

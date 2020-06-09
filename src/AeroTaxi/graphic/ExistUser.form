@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AeroTaxi.graphic.ExistUser">
-  <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="399"/>
@@ -26,6 +26,7 @@
         <properties>
           <enabled value="false"/>
           <font name="SansSerif" size="14"/>
+          <foreground color="-4622846"/>
           <text value="Buscar Usuario"/>
         </properties>
       </component>
@@ -47,45 +48,17 @@
         </constraints>
         <properties>
           <font name="SansSerif" size="14"/>
+          <foreground color="-4622846"/>
           <text value="Volver"/>
         </properties>
       </component>
-      <vspacer id="14b5d">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="-1" height="100"/>
-            <preferred-size width="11" height="150"/>
-          </grid>
-        </constraints>
-      </vspacer>
-      <hspacer id="a2eb5">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-      </hspacer>
-      <hspacer id="4863d">
-        <constraints>
-          <grid row="3" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <minimum-size width="50" height="-1"/>
-          </grid>
-        </constraints>
-      </hspacer>
-      <vspacer id="fd130">
-        <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="2" indent="0" use-parent-layout="false">
-            <minimum-size width="-1" height="100"/>
-            <preferred-size width="-1" height="100"/>
-          </grid>
-        </constraints>
-      </vspacer>
       <component id="94907" class="javax.swing.JLabel" binding="exampleLabel">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="SansSerif" size="14"/>
+          <foreground color="-4622846"/>
           <text value="(ej. 30.123.456)"/>
         </properties>
       </component>
@@ -95,9 +68,33 @@
         </constraints>
         <properties>
           <font name="SansSerif" size="14"/>
+          <foreground color="-4622846"/>
           <text value="DNI"/>
         </properties>
       </component>
+      <grid id="d83d3" binding="logoPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16777216"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="31bb8" class="javax.swing.JLabel" binding="image">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="0" height="0"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="SansSerif" size="20"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

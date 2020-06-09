@@ -11,13 +11,12 @@ import AeroTaxi.utility.Path;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class NewFlight extends JFrame{
     private JLabel dateLabel;
@@ -35,7 +34,9 @@ public class NewFlight extends JFrame{
     private JTextField capa;
     private JTextField totalCost;
 
-    //asd
+    List<Flight> list;
+
+
     public NewFlight(User user) throws HeadlessException {
 
         ImageIcon img = new ImageIcon(Path.iconPath);
@@ -114,9 +115,20 @@ public class NewFlight extends JFrame{
                 String date = dateField.getText();
                 boolean enabled =  AeroTaxi.checkDate(date);
                 searchButton.setEnabled(enabled);
+                airplanesCombo.setEnabled(enabled);
+                origenCombo.setEnabled(enabled);
+                destinyCombo.setEnabled(enabled);
+                companionField.setEnabled(enabled);
                 if (enabled){
                     LocalDate localDate = LocalDate.parse(date,AeroTaxi.dateFormat);
-                    List<Flight> list = AeroTaxi.searchFlyByDate(localDate);
+                    boolean valid = AeroTaxi.checkValidDate(localDate);
+                    if (valid){
+                        list = AeroTaxi.searchFlyByDate(localDate);
+                    }
+                    else{
+                        showMessageDialog(null, "Fecha invalida / ya paso!");
+                        dateField.setText("");
+                    }
                 }
             }
         });

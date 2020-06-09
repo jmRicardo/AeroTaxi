@@ -15,7 +15,7 @@ public class AeroTaxi {
     /// Patrones
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
-    private static final Pattern datePattern = Pattern.compile("\\d{1,2}/\\d{1,2}/202\\d");
+    private static final Pattern datePattern = Pattern.compile("\\d{2}/\\d{2}/202\\d");
 
     /// Formato de Dia
     public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -88,6 +88,10 @@ public class AeroTaxi {
         int capacity = flight.getPlane().getCapacity();
         int passengers = flight.getUsers().values().stream().mapToInt(Integer::valueOf).sum();
         return passengers < capacity;
+    }
+
+    public static boolean checkValidDate(LocalDate date){
+        return date.compareTo(LocalDate.now()) >= 0;
     }
 
     public static int calculateDistance (City departure,City destiny){

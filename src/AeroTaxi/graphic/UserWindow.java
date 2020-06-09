@@ -12,6 +12,8 @@ public class UserWindow extends JFrame {
     private JButton existingUserButton;
     private JPanel root;
     private JButton backButton;
+    private JPanel logoPanel;
+    private JLabel image;
 
     public UserWindow(){
 
@@ -22,6 +24,8 @@ public class UserWindow extends JFrame {
         existingUserButton.setForeground(SwingUtil.textColor);
         backButton.setBackground(SwingUtil.buttonColor);
         backButton.setForeground(SwingUtil.textColor);
+
+        image.setIcon(new ImageIcon(Path.logoPath));
 
         ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
