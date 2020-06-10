@@ -13,15 +13,15 @@ public class CargaProvisoria {
     public static void main(String[] args) {
 
         Map<String,Integer> map = new HashMap<>();
-        map.put(AeroTaxi.users.get(0).getDNI(),880);
-        map.put(AeroTaxi.users.get(1).getDNI(),20);
+        map.put(AeroTaxi.users.get(0).getDNI(),1);
+        map.put(AeroTaxi.users.get(1).getDNI(),1);
 
         Flight a = new Flight();
-        a.setDate(LocalDate.parse("12/10/2020",AeroTaxi.dateFormat));
-        a.setDestiny(City.Buenos_Aires);
-        a.setOrigin(City.Montevideo);
+        a.setDate(LocalDate.parse("05/05/2020",AeroTaxi.dateFormat));
+        a.setDestiny(City.Santiago);
+        a.setOrigin(City.Cordoba);
         a.setUsers(map);
-        a.setPlane(AeroTaxi.airplanes.get(0));
+        a.setPlane(AeroTaxi.airplanes.get(1));
 
         AeroTaxi.flights.add(a);
 

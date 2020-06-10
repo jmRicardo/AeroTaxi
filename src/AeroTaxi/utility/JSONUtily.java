@@ -10,7 +10,12 @@ import java.util.List;
 
 public class JSONUtily {
 
-    /// Save and Load de nuestros 3 archivos en 4 funciones
+    private static final ObjectMapper mapper = newMapper();
+
+    private static ObjectMapper newMapper(){
+        return new ObjectMapper().enableDefaultTyping();
+    }
+
     public static <T> void saveFile(String path, List<T> list)
     {
         BufferedWriter buff = null;
@@ -19,8 +24,6 @@ public class JSONUtily {
         } catch (IOException e) {
             System.out.println("error al abrir el archivo para escritura!");
         }
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
         String serialized = null;
         try {
             serialized = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(list);
@@ -50,8 +53,6 @@ public class JSONUtily {
             System.out.println("Archivo no encontrado");
             return list;
         }
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enableDefaultTyping();
         try {
             list = mapper.readValue(buff, new TypeReference<ArrayList<T>>(){});
         } catch (IOException e) {

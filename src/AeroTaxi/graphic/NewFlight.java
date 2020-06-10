@@ -34,12 +34,17 @@ public class NewFlight extends JFrame{
     private List<Flight> list;
     private Flight newFlight;
     private LocalDate localDate;
+    private Airplane airplane;
+    private City origin,destiny;
+    private User user;
 
 
     public NewFlight(User user) throws HeadlessException {
 
         list = null;
         newFlight = null;
+
+        this.user = user;
 
         ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
@@ -59,11 +64,13 @@ public class NewFlight extends JFrame{
         destinyCombo.setSelectedIndex(1);
 
         origenCombo.addActionListener(e -> {
+            activeFieldsSearch(false);
             while (origenCombo.getSelectedIndex() == destinyCombo.getSelectedIndex())
                 destinyCombo.setSelectedIndex(new Random().nextInt(City.values().length));
         });
 
         destinyCombo.addActionListener(e -> {
+            activeFieldsSearch(false);
             while (origenCombo.getSelectedIndex() == destinyCombo.getSelectedIndex())
                 origenCombo.setSelectedIndex(new Random().nextInt(City.values().length));
         });
@@ -75,6 +82,17 @@ public class NewFlight extends JFrame{
 
         okButton.addActionListener(e -> {
 
+            airplane = AeroTaxi.airplanes.stream().filter(x -> airplanesCombo.getSelectedItem().equals(x.toString())).findAny().orElse(null);
+            int passengers = Integer.parseInt(companionField.getText());
+/*
+
+            if (list.stream().anyMatch(x -> x.getUsers().containsKey(user.getDNI())))
+
+            }
+*/
+
+
+
             Flight flight = new Flight();
             AeroTaxi.flights.add(flight);
             JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
@@ -83,15 +101,14 @@ public class NewFlight extends JFrame{
         });
 
         searchButton.addActionListener(e -> {
-            City origin = City.valueOf(Objects.requireNonNull(origenCombo.getSelectedItem()).toString());
-            City destiny = City.valueOf(Objects.requireNonNull(destinyCombo.getSelectedItem()).toString());
+            origin = City.valueOf(Objects.requireNonNull(origenCombo.getSelectedItem()).toString());
+            destiny = City.valueOf(Objects.requireNonNull(destinyCombo.getSelectedItem()).toString());
             list = AeroTaxi.searchFlyByDate(localDate);
             List<Airplane> delete = new ArrayList<>();
             for (Flight f : list) {
                 if (!(origin.equals(f.getOrigin()) && destiny.equals(f.getDestiny())))
                      delete.add(f.getPlane());
             }
-            System.out.println(delete);
             activeFieldsSearch(true);
             fillAirplanes(delete);
         });

@@ -3,6 +3,8 @@ package AeroTaxi.core.airplanes;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.util.Objects;
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -90,5 +92,23 @@ public abstract class Airplane {
                 ", engine=" + engine +
                 ", rate=" + rate +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airplane airplane = (Airplane) o;
+        return fuel == airplane.fuel &&
+                Double.compare(airplane.cost, cost) == 0 &&
+                capacity == airplane.capacity &&
+                Double.compare(airplane.maxSpeed, maxSpeed) == 0 &&
+                rate == airplane.rate &&
+                engine == airplane.engine;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fuel, cost, capacity, maxSpeed, engine, rate);
     }
 }

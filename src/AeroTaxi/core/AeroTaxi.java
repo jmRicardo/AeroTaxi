@@ -1,6 +1,7 @@
 package AeroTaxi.core;
 
 import AeroTaxi.core.airplanes.*;
+import AeroTaxi.utility.JSONUtily;
 import AeroTaxi.utility.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -85,6 +86,15 @@ public class AeroTaxi {
         int capacity = flight.getPlane().getCapacity();
         int passengers = flight.getUsers().values().stream().mapToInt(Integer::valueOf).sum();
         return passengers < capacity;
+    }
+
+    public static void actualizePastFlight()
+    {
+        for (Flight f : flights) {
+            if (!checkValidDate(f.getDate()))
+                f.setDone(true);
+            JSONUtily.saveFile(Path.flightsPath,flights);
+        }
     }
 
     public static boolean checkValidDate(LocalDate date){
