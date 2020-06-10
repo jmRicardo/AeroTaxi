@@ -43,20 +43,23 @@ public class AeroTaxi {
         return datePattern.matcher(date).matches();
     }
 
-    public static User searchUser(String DNI){
+    public static User searchUser(String DNI)
+    {
       return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
-
     }
-    public static List<Flight> searchFlyByDate(LocalDate ld){
+    public static List<Flight> searchFlyByDate(LocalDate ld)
+    {
         return  flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());
     }
 
-    public static List<Flight> searchFlyByUser(User user){
+    public static List<Flight> searchFlyByUser(User user)
+    {
         return  flights.stream().filter(x -> x.getUsers().containsKey(user.getDNI())).collect(Collectors.toList());
     }
 
     /// a mejorar
-    public static String moreUsedAirplane(User user){
+    public static String moreUsedAirplane(User user)
+    {
         List<Flight> list = searchFlyByUser(user);
         if (list.isEmpty())
             return "Ninguno";
@@ -71,18 +74,14 @@ public class AeroTaxi {
         return map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).get().getKey().toString();
     }
 
-    public static double getTotalSpendByUser(User user){
+    public static double getTotalSpendByUser(User user)
+    {
         List<Flight> list = searchFlyByUser(user);
-        if (list.isEmpty())
-            return 0;
-        double total = 0;
-        for (Flight flight : list) {
-            total+=flight.costPerUser(user);
-        }
-        return total;
+        return  !list.isEmpty() ? list.stream().mapToDouble(x -> x.costPerUser(user)).sum() : 0 ;
     }
 
-    public static boolean checkAirplaneCapacityPerFly(Flight flight){
+    public static boolean checkAirplaneCapacityPerFly(Flight flight)
+    {
         int capacity = flight.getPlane().getCapacity();
         int passengers = flight.getUsers().values().stream().mapToInt(Integer::valueOf).sum();
         return passengers < capacity;
