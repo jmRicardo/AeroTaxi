@@ -9,7 +9,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -27,13 +29,17 @@ public class NewFlight extends JFrame{
     private JButton searchButton;
     private JPanel root;
     private JButton backButton;
-    private JTextField capa;
     private JTextField totalCost;
 
-    List<Flight> list;
+    private List<Flight> list;
+    private Flight newFlight;
+    private LocalDate localDate;
 
 
     public NewFlight(User user) throws HeadlessException {
+
+        list = null;
+        newFlight = null;
 
         ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
@@ -48,8 +54,6 @@ public class NewFlight extends JFrame{
             origenCombo.addItem(c.name());
             destinyCombo.addItem(c.name());
         }
-
-        fillAirplanes();
 
         origenCombo.setSelectedIndex(0);
         destinyCombo.setSelectedIndex(1);
@@ -79,6 +83,17 @@ public class NewFlight extends JFrame{
         });
 
         searchButton.addActionListener(e -> {
+            City origin = City.valueOf(Objects.requireNonNull(origenCombo.getSelectedItem()).toString());
+            City destiny = City.valueOf(Objects.requireNonNull(destinyCombo.getSelectedItem()).toString());
+            list = AeroTaxi.searchFlyByDate(localDate);
+            List<Airplane> delete = new ArrayList<>();
+            for (Flight f : list) {
+                if (!(origin.equals(f.getOrigin()) && destiny.equals(f.getDestiny())))
+                     delete.add(f.getPlane());
+            }
+            System.out.println(delete);
+            activeFieldsSearch(true);
+            fillAirplanes(delete);
         });
 
         companionField.setText("0"); //necesario para que funcione el calculo del costo del vuelo
@@ -92,9 +107,11 @@ public class NewFlight extends JFrame{
         });
     }
 
-    public void fillAirplanes(Airplane... delete){
+    public void fillAirplanes(List<Airplane> delete){
+        airplanesCombo.removeAllItems();
         for (Airplane a : AeroTaxi.airplanes){  //recorre la lista de aviones para mostrar en el Box
-            airplanesCombo.addItem(a.toString());
+            if (!delete.contains(a))
+                airplanesCombo.addItem(a.toString());
         }
     }
 
@@ -102,28 +119,29 @@ public class NewFlight extends JFrame{
     {
         String date = dateField.getText();
         boolean enabled =  AeroTaxi.checkDate(date);
-        activeFields(enabled);
+        activeFieldsDate(enabled);
         if (enabled){
-            LocalDate localDate = LocalDate.parse(date,AeroTaxi.dateFormat);
+            localDate = LocalDate.parse(date,AeroTaxi.dateFormat);
             boolean valid = AeroTaxi.checkValidDate(localDate);
-            if (valid){
-                list = AeroTaxi.searchFlyByDate(localDate);
-            }
-            else{
+            if (!valid){
                 showMessageDialog(null, "Fecha invalida / ya paso!");
                 dateField.setText("");
-                activeFields(false);
+                activeFieldsDate(false);
             }
         }
     }
 
-    public void activeFields(Boolean enabled)
+    public void activeFieldsDate(Boolean enabled)
     {
         searchButton.setEnabled(enabled);
-        airplanesCombo.setEnabled(enabled);
         origenCombo.setEnabled(enabled);
         destinyCombo.setEnabled(enabled);
+    }
+    public void activeFieldsSearch(Boolean enabled)
+    {
         companionField.setEnabled(enabled);
+        airplanesCombo.setEnabled(enabled);
+        okButton.setEnabled(enabled);
     }
 
 
