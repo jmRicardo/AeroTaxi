@@ -40,4 +40,86 @@
   "costPerKm" : 172,
   "done" : true,
   "origin" : "Cordoba"
+} ], [ "AeroTaxi.core.Flight", {
+  "users" : [ "java.util.HashMap", {
+    "15.555.555" : 1
+  } ],
+  "plane" : {
+    "type" : "AeroTaxi.core.airplanes.Gold",
+    "fuel" : 900,
+    "cost" : 350.0,
+    "capacity" : 900,
+    "maxSpeed" : 1000.0,
+    "engine" : "reaction",
+    "rate" : 6000,
+    "catering" : "MILANGA CON PURE PAPURRI!",
+    "wifi" : true
+  },
+  "date" : "01/01/2022",
+  "departure" : "Montevideo",
+  "destiny" : "Santiago",
+  "costPerKm" : 156,
+  "done" : false,
+  "origin" : "Montevideo"
+} ], [ "AeroTaxi.core.Flight", {
+  "users" : [ "java.util.HashMap", {
+    "11.111.111" : 3
+  } ],
+  "plane" : {
+    "type" : "AeroTaxi.core.airplanes.Silver",
+    "fuel" : 700,
+    "cost" : 200.0,
+    "capacity" : 350,
+    "maxSpeed" : 700.0,
+    "engine" : "piston",
+    "rate" : 4000,
+    "catering" : "CHORI CON MUCHO CHIMI!"
+  },
+  "date" : "02/02/2021",
+  "departure" : "Cordoba",
+  "destiny" : "Santiago",
+  "costPerKm" : 196,
+  "done" : false,
+  "origin" : "Cordoba"
+} ], [ "AeroTaxi.core.Flight", {
+  "users" : [ "java.util.HashMap", {
+    "15.555.555" : 4
+  } ],
+  "plane" : {
+    "type" : "AeroTaxi.core.airplanes.Silver",
+    "fuel" : 700,
+    "cost" : 200.0,
+    "capacity" : 350,
+    "maxSpeed" : 700.0,
+    "engine" : "piston",
+    "rate" : 4000,
+    "catering" : "CHORI CON MUCHO CHIMI!"
+  },
+  "date" : "01/01/2025",
+  "departure" : "Buenos_Aires",
+  "destiny" : "Montevideo",
+  "costPerKm" : 291,
+  "done" : false,
+  "origin" : "Buenos_Aires"
+} ], [ "AeroTaxi.core.Flight", {
+  "users" : [ "java.util.HashMap", {
+    "22.222.222" : 3
+  } ],
+  "plane" : {
+    "type" : "AeroTaxi.core.airplanes.Gold",
+    "fuel" : 900,
+    "cost" : 350.0,
+    "capacity" : 900,
+    "maxSpeed" : 1000.0,
+    "engine" : "reaction",
+    "rate" : 6000,
+    "catering" : "MILANGA CON PURE PAPURRI!",
+    "wifi" : true
+  },
+  "date" : "02/02/2022",
+  "departure" : "Santiago",
+  "destiny" : "Cordoba",
+  "costPerKm" : 182,
+  "done" : false,
+  "origin" : "Santiago"
 } ] ]

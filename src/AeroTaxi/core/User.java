@@ -54,12 +54,7 @@ public class User{
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", DNI='" + DNI + '\'' +
-                ", age=" + age +
-                '}';
+        return "Nombre y apellido: "+name+" "+lastName+"     DNI: "+DNI+"     Edad: "+age;
     }
 
     @Override

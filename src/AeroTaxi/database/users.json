@@ -23,4 +23,19 @@
   "lastName" : "b",
   "age" : 12,
   "dni" : "9.999.999"
+} ], [ "AeroTaxi.core.User", {
+  "name" : "Facu",
+  "lastName" : "Losquin",
+  "age" : 37,
+  "dni" : "15.555.555"
+} ], [ "AeroTaxi.core.User", {
+  "name" : "Turin",
+  "lastName" : "Turambar",
+  "age" : 45,
+  "dni" : "11.111.111"
+} ], [ "AeroTaxi.core.User", {
+  "name" : "pepe",
+  "lastName" : "pompin",
+  "age" : 22,
+  "dni" : "22.222.222"
 } ] ]

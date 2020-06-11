@@ -118,20 +118,10 @@ public class Flight {
     public Double costPerUser(User user){
         return (double) ((AeroTaxi.calculateDistance(departure, destiny)*costPerKm) + (users.get(user.getDNI())*3500) + plane.getRate());
     }
-    /*
-    (Cantidad de kms * Costo del km) + (cantidad de pasajeros * 3500) + (Tarifa del tipo
-    de avión)*/
 
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "users=" + users +
-                ", plane=" + plane +
-                ", date='" + date + '\'' +
-                ", departure=" + departure +
-                ", destiny=" + destiny +
-                ", isDone=" + isDone +
-                '}';
+        return "Fecha: "+date+"   Origen: "+departure+"   Destino: "+destiny;
     }
 }
