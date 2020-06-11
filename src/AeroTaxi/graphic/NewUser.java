@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class NewUser extends JFrame{
     private JTextField nameField;
     private JTextField lastField;
@@ -66,14 +68,15 @@ public class NewUser extends JFrame{
             String dni = dniField.getText();
             int age = Integer.parseInt(ageField.getText());
             User user = new User(name,lastName,dni,age);
-
-            if (AeroTaxi.users.contains(user.getDNI()))
-            AeroTaxi.users.add(user);
-//          se graba en el archivo
-            JSONUtily.saveFile(Path.usersPath, AeroTaxi.users);
-            dispose();
-            new NewFlight(user);
-
+             if (AeroTaxi.searchUser(dni)!=null)
+                 showMessageDialog(null,"Ya existe un usuario con ese DNI");
+             else
+             {
+                 AeroTaxi.users.add(user);
+                 JSONUtily.saveFile(Path.usersPath, AeroTaxi.users);
+                 dispose();
+                 new NewFlight(user);
+             }
         });
 
 
