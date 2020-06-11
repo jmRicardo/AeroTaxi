@@ -76,10 +76,7 @@ public class AdminWindow extends JFrame {
                 List<Flight> list = AeroTaxi.searchFlyByDate(localDate);
                 if (list!=null){
                     for (Flight flight : list) {
-                        flights.addElement("Fecha: "+ flight.getDate()+
-                                "  Origen: "+ flight.getOrigin() +
-                                "  Destino: " + flight.getDestiny() +
-                                "  Avion:" + flight.getPlane().getClass().getName());
+                        flights.addElement(flight);
                     }
                 }
             }catch (DateTimeParseException exception)

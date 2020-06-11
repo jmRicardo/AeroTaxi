@@ -88,9 +88,7 @@ public class CancelFlight extends JFrame {
                 userFlights = AeroTaxi.searchFlyByUser(find);
                 for (Flight flight : userFlights) {
                     if (!flight.isDone())
-                        listModel.addElement("Fecha: "+ flight.getDate()+
-                                                "  Origen: "+ flight.getOrigin() +
-                                                    "  Destino: " + flight.getDestiny());
+                        listModel.addElement(flight);
                 }
             }
 
