@@ -66,6 +66,8 @@ public class NewUser extends JFrame{
             String dni = dniField.getText();
             int age = Integer.parseInt(ageField.getText());
             User user = new User(name,lastName,dni,age);
+
+            if (AeroTaxi.users.contains(user.getDNI()))
             AeroTaxi.users.add(user);
 //          se graba en el archivo
             JSONUtily.saveFile(Path.usersPath, AeroTaxi.users);

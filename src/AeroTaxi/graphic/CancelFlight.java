@@ -79,7 +79,6 @@ public class CancelFlight extends JFrame {
         listModel = new DefaultListModel();
         flightList.setModel(listModel);
 
-
         searchButton.addActionListener(e -> {
             find = AeroTaxi.searchUser(dniText.getText());
             if (find == null){
@@ -96,11 +95,12 @@ public class CancelFlight extends JFrame {
             }
 
         });
+
         cancelButton.addActionListener(e -> {
             int x = flightList.getSelectedIndex();
-            userFlights.get(x).getUsers().remove(find);
+            userFlights.get(x).getUsers().remove(find.getDNI());
+            listModel.removeAllElements();
             JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
-
         });
     }
 

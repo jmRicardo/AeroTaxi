@@ -23,4 +23,9 @@
   "lastName" : "b",
   "age" : 12,
   "dni" : "9.999.999"
+} ], [ "AeroTaxi.core.User", {
+  "name" : "juan",
+  "lastName" : "manuel",
+  "age" : 21,
+  "dni" : "34.313.637"
 } ] ]
