@@ -86,8 +86,15 @@ public class NewFlight extends JFrame{
         });
 
         okButton.addActionListener(e -> {
-            Flight flight = new Flight();
-            AeroTaxi.flights.add(flight);
+
+            Flight flight;
+            flight = list.stream().filter(x -> destiny.equals(x.getDestiny()) && origin.equals(x.getOrigin()) && airplane.equals(x.getPlane())).findFirst().orElse(null);
+
+            if (flight==null)
+                AeroTaxi.flights.add(newFlight);
+            else
+                flight.getUsers().put(user.getDNI(),1+passengers);
+
             JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
             dispose();
             new MainWindow();
@@ -197,6 +204,7 @@ public class NewFlight extends JFrame{
         String date = dateField.getText();
         boolean enabled =  AeroTaxi.checkDate(date);
         activeFieldsDate(enabled);
+        activeFieldsSearch(false);
         if (enabled){
             localDate = LocalDate.parse(date,AeroTaxi.dateFormat);
             boolean valid = AeroTaxi.checkValidDate(localDate);
@@ -205,6 +213,8 @@ public class NewFlight extends JFrame{
                 dateField.setText("");
                 activeFieldsDate(false);
             }
+            else
+                newFlight.setDate(localDate);
         }
     }
 
