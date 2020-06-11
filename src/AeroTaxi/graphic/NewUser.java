@@ -45,8 +45,6 @@ public class NewUser extends JFrame{
         backButton.setBackground(SwingUtil.buttonColor);
 
         image.setIcon(new ImageIcon(Path.logoPath));
-
-
         ImageIcon img = new ImageIcon(Path.iconPath);
         this.setIconImage(img.getImage());
         add(root);
@@ -110,10 +108,4 @@ public class NewUser extends JFrame{
             okButton.setEnabled(false);
         }
     }
-
-
-
-
-
-
 }

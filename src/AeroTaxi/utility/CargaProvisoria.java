@@ -26,10 +26,5 @@ public class CargaProvisoria {
         AeroTaxi.flights.add(a);
 
         JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
-
     }
-
-
-
-
 }

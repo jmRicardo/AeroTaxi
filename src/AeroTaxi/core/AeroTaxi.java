@@ -17,6 +17,7 @@ public class AeroTaxi {
     private static final Pattern dniPattern = Pattern.compile("\\d{1,2}\\.\\d{3}\\.\\d{3}");
     private static final Pattern agePattern = Pattern.compile("\\d{2}");
     private static final Pattern datePattern = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
+    private static final Pattern passengersPattern = Pattern.compile("\\d{1}");
 
     /// Formato de Dia
     public static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -44,10 +45,16 @@ public class AeroTaxi {
         return datePattern.matcher(date).matches();
     }
 
+    public static boolean checkPassengers(String pass)
+    {
+        return passengersPattern.matcher(pass).matches();
+    }
+
     public static User searchUser(String DNI)
     {
       return users.stream().filter(x -> DNI.equals(x.getDNI())).findAny().orElse(null);
     }
+
     public static List<Flight> searchFlyByDate(LocalDate ld)
     {
         return  flights.stream().filter(x -> x.getDate().equals(ld)).collect(Collectors.toList());

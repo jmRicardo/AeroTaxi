@@ -15,7 +15,9 @@
     "wifi" : true
   },
   "date" : "12/10/2020",
+  "departure" : "Montevideo",
   "destiny" : "Buenos_Aires",
+  "costPerKm" : 267,
   "done" : false,
   "origin" : "Montevideo"
 } ], [ "AeroTaxi.core.Flight", {
@@ -33,7 +35,9 @@
     "rate" : 3000
   },
   "date" : "05/05/2020",
+  "departure" : "Cordoba",
   "destiny" : "Santiago",
+  "costPerKm" : 172,
   "done" : true,
   "origin" : "Cordoba"
 } ] ]

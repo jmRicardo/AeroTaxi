@@ -42,10 +42,29 @@ public class Flight {
     }
 
     public Flight() {
+        this.users = new HashMap<>();
+        this.isDone = false;
+        this.costPerKm = new Random().nextInt(150)+150;
     }
 
     public void addUsers(String user,Integer total) {
-        users.put(user,total);
+        this.users.put(user,total);
+    }
+
+    public City getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(City departure) {
+        this.departure = departure;
+    }
+
+    public int getCostPerKm() {
+        return costPerKm;
+    }
+
+    public void setCostPerKm(int costPerKm) {
+        this.costPerKm = costPerKm;
     }
 
     public Map<String, Integer> getUsers() {

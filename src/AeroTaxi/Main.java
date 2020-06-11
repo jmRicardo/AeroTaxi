@@ -2,7 +2,6 @@ package AeroTaxi;
 
 import AeroTaxi.core.AeroTaxi;
 import AeroTaxi.graphic.MainWindow;
-
 import javax.swing.*;
 
 public class Main {
