@@ -88,11 +88,11 @@ public class AeroTaxi {
         return  !list.isEmpty() ? list.stream().mapToDouble(x -> x.costPerUser(user)).sum() : 0 ;
     }
 
-    public static boolean checkAirplaneCapacityPerFly(Flight flight)
+    public static int checkAirplaneCapacityPerFly(Flight flight)
     {
         int capacity = flight.getPlane().getCapacity();
         int passengers = flight.getUsers().values().stream().mapToInt(Integer::valueOf).sum();
-        return passengers < capacity;
+        return capacity - passengers;
     }
 
     public static void actualizePastFlight()

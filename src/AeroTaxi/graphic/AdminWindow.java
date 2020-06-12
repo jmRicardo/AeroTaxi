@@ -51,12 +51,14 @@ public class AdminWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int x = usersList.getSelectedIndex();
-                planeField.setText(AeroTaxi.moreUsedAirplane(AeroTaxi.users.get(x)));
-                double spend = AeroTaxi.getTotalSpendByUser(AeroTaxi.users.get(x));
-                String spendString = NumberFormat.getCurrencyInstance(new Locale("en", "US"))
-                        .format(spend);
-                totalField.setText(spendString);
-
+                if (x!=-1)
+                {
+                    planeField.setText(AeroTaxi.moreUsedAirplane(AeroTaxi.users.get(x)));
+                    double spend = AeroTaxi.getTotalSpendByUser(AeroTaxi.users.get(x));
+                    String spendString = NumberFormat.getCurrencyInstance(new Locale("en", "US"))
+                            .format(spend);
+                    totalField.setText(spendString);
+                }
             }
         });
 

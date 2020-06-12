@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
 import java.util.List;
 
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -96,9 +97,16 @@ public class CancelFlight extends JFrame {
 
         cancelButton.addActionListener(e -> {
             int x = flightList.getSelectedIndex();
-            userFlights.get(x).getUsers().remove(find.getDNI());
+            Flight aux = userFlights.get(x);
+            if (aux.getDate().equals(LocalDate.now())){
+                showMessageDialog(null,"No se puede cancelar un vuelo con menos de 24hs de anticipación");
+            }else{
+                showMessageDialog(null,"Vuelvo cancelado!");
+                userFlights.get(x).getUsers().remove(find.getDNI());
+                JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
+            }
             listModel.removeAllElements();
-            JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
+
         });
     }
 

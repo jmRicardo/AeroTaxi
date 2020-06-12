@@ -122,6 +122,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Fecha: "+date+"   Origen: "+departure+"   Destino: "+destiny;
+        return "Fecha: "+date.format(AeroTaxi.dateFormat)+"   Origen: "+departure+"   Destino: "+destiny;
     }
 }

@@ -90,14 +90,17 @@ public class NewFlight extends JFrame{
             Flight flight;
             flight = list.stream().filter(x -> destiny.equals(x.getDestiny()) && origin.equals(x.getOrigin()) && airplane.equals(x.getPlane())).findFirst().orElse(null);
 
-            if (flight==null)
+            if (flight==null){
                 AeroTaxi.flights.add(newFlight);
-            else
+                saveOK();
+            }
+            else if (AeroTaxi.checkAirplaneCapacityPerFly(flight) > passengers + 1) {
                 flight.getUsers().put(user.getDNI(),1+passengers);
-
-            JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
-            dispose();
-            new MainWindow();
+                saveOK();
+            }
+            else{
+                showMessageDialog(null,"No disponemos de esa capacidad de asientos en ese Vuelo!");
+            }
         });
 
         searchButton.addActionListener(e -> {
@@ -233,6 +236,13 @@ public class NewFlight extends JFrame{
 
     public double calculateCost(){
         return newFlight.costPerUser(user);
+    }
+
+    private void saveOK(){
+        showMessageDialog(null,"Vuelo reservado con exito!");
+        JSONUtily.saveFile(Path.flightsPath,AeroTaxi.flights);
+        dispose();
+        new MainWindow();
     }
 
 
